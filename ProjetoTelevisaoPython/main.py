@@ -16,18 +16,18 @@ class Televisao:
             self.energia = False
 
     def volumeAcima(self):  # aumenta o volume da TV
-        if self.volume >= 0:
+        if self.volume < 100:
             print(f"Volume alterado para {self.volume+1}")
             self.volume = self.volume+1
         else:
-            print("Volume não pode ser menor que Zero.")
+            print("Volume não pode ser maior que 100.")
 
     def volumeAbaixo(self):  # diminui o volume da TV
-        if self.volume < 100:
+        if self.volume > 0:
             print(f"Volume alterado para {self.volume-1}")
             self.volume = self.volume-1
         else:
-            print("Volume não pode ser maior que 100.")
+            print("Volume não pode ser menor que 0 (zero).")
 
     def canalAcima(self):  # muda o número do canal para cima, não pode ser 100
         if self.canal < 100:
