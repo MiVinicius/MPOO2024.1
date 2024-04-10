@@ -15,17 +15,31 @@ class Televisao:
             print("A TV vai desligar")
             self.energia = False
 
-    def ajustarVolume(self, volume):  # ajusta o volume, o volume tem que ser maior ou igual a 0 (zero)
-        if volume >= 0:
-            print(f"Volume alterado para {volume}")
-            self.volume = volume
+    def volumeAcima(self):  # aumenta o volume da TV
+        if self.volume >= 0:
+            print(f"Volume alterado para {self.volume+1}")
+            self.volume = self.volume+1
         else:
-            print("Volume não pode ser negativo.")
+            print("Volume não pode ser menor que Zero.")
 
-    def ajustarCanal(self, canal):  # ajusta o canal, tem que ser maior que 0 (zero)
-        if canal > 0:
-            print(f"Canal mudou para {canal}")
-            self.canal = canal
+    def volumeAbaixo(self):  # diminui o volume da TV
+        if self.volume < 100:
+            print(f"Volume alterado para {self.volume-1}")
+            self.volume = self.volume-1
+        else:
+            print("Volume não pode ser maior que 100.")
+
+    def canalAcima(self):  # muda o número do canal para cima, não pode ser 100
+        if self.canal < 100:
+            print(f"Canal mudou para {self.canal+1}")
+            self.canal = self.canal+1
+        else:
+            print("Número de canal inválido.")
+
+    def canalAbaixo(self):  # muda o número do canal para baixo, não pode ser 0 (zero)
+        if self.canal > 0:
+            print(f"Canal mudou para {self.canal-1}")
+            self.canal = self.canal-1
         else:
             print("Número de canal inválido.")
 
@@ -43,7 +57,9 @@ class Televisao:
 televisao = Televisao()
 televisao.on()
 televisao.off()
-televisao.ajustarVolume(5)
+televisao.volumeAcima()
+televisao.volumeAbaixo()
 televisao.mudo()
-televisao.ajustarCanal(10)
+televisao.canalAcima()
+televisao.canalAbaixo()
 televisao.obterInformacao()
