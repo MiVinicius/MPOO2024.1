@@ -7,7 +7,7 @@ class Curso():
         self.nome = None
         self.cursos = []  # mais facil de retornar os nomes depois
         self.disciplinas = []   # mesma coisa
-        self.professor = [] # e foi nesse momento que eu pensei, estou perdido no que fazer nesse projeto
+        #self.professor = [] # e foi nesse momento que eu pensei, estou perdido no que fazer nesse projeto
         
     def cadastrarCurso(self):
         nome = str(input("Digite o nome do curso: \n"))
