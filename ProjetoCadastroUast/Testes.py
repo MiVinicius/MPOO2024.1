@@ -30,7 +30,7 @@ def testesAluno():
 
 
     print(aluno1)
-    print(aluno1.mostrarEndereco())
+    aluno1.mostrarEndereco()
     print(aluno1.getEndereco())
     print(aluno1.getNome())
     print(aluno1.getMatricula())
@@ -62,7 +62,7 @@ def testesProfessor():
     professor1.setDisciplina(disciplina2)
 
     print(professor1)
-    print(professor1.mostrarEndereco()) # 1 real pra quer descobrir como isso retorna None
+    professor1.mostrarEndereco() 
     print(professor1.getEndereco())
     print(professor1.getNome())
     print(professor1.getCpf())
@@ -70,7 +70,7 @@ def testesProfessor():
     print(professor1.getDisciplina())
 
 
-# testesAluno()
+testesAluno()
 testesProfessor()
 
 
