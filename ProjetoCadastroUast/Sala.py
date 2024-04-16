@@ -18,7 +18,7 @@ class Sala():
     def deletarSala(self):
         self.salaNumero = None
         self.blocoNumero = None
-        print("Sala deletada com sucesso!") # se deletar vai ter que usar o setSala da Diciplina
+        print("Sala deletada com sucesso!") 
 
     def setSalaNumero(self, salaNum):
         self.salaNumero = salaNum
@@ -31,4 +31,3 @@ class Sala():
     
     def getBlocoNumero(self):
         return self.blocoNumero
-    # essas funções estão aqui mais pra acesso rápido, já que seriam usadas realmente em uma interface

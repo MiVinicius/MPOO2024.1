@@ -10,8 +10,7 @@ class Disciplina():
         disciplina = str(input("Digite o nome da disciplina: "))
         if disciplina:
             self.setNome(disciplina)
-            self.cadastrarSala() # vou obrigar colocar a sala e o bloco no cadastro da diciplina, 
-                                 # para que fique igual o sigaa que a sala que colocam é a sala errada
+            self.cadastrarSala() 
             print("Diciplina cadastrada com sucesso!")
             return self
         print("Disciplina não cadastrada")

@@ -32,9 +32,6 @@ class Endereco():
     def mostrarEndereco(self):  # retorna a função de baixo para mostrar os dados
         return print(self.__repr__())
 
-    def __repr__(self) -> str:
-        return f"Rua: {self.rua}, Bairro: {self.bairro}, Número: {self.numero}, Cidade: {self.cidade}"
-    
     def setRua(self, rua):
         self.rua = rua
 
@@ -58,3 +55,6 @@ class Endereco():
     
     def getCidade(self):
         return self.cidade
+
+    def __repr__(self) -> str:
+        return f"Rua: {self.rua}, Bairro: {self.bairro}, Número: {self.numero}, Cidade: {self.cidade}"

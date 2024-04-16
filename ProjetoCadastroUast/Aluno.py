@@ -5,61 +5,48 @@ class Aluno():
 
     def __init__(self) -> None:  #vai criar o objeto, mas ele é vazio
         self.nome = None
+        self.matricula = None
         self.endereco = None
         self.curso = None
-        self.disciplina = None
-        self.sala = None
-        self.alunos = []  # nosso armazenamento será list
+        self.disciplinas = []
 
-    def cadastrarAluno(self):  # vai cadastrar o aluno - aceita string
+    def cadastrarAluno(self):  # vai cadastrar o aluno, requer varios cadastros
         nome = str(input("Digite o nome do aluno: \n"))
         self.setNome(nome)
-        # self.alunos.append(nome)  deveria ficar aqui, foi implementada no setNome
+        matricula = str(input("Digite a matricula do aluno: \n"))
+        self.matricula(matricula)
+        self.cadastrarEndereco(self)
+        self.cadastrarCurso(self)
+        self.cadastrarDisciplina(self)
         return print("cadastro do aluno concluido")
     
-    def buscarAluno(self, alunoBuscar):  # retorna o nome do aluno - aceita string
-        for aluno in self.alunos:
-            if aluno == alunoBuscar:
-                return aluno
-        return None
-    
-    def mudarNomeAluno(self, nomeAntigo, nomeNovo): # utiliza do metodo index da list para alterar o nome do aluno
-        if self.buscarAluno(nomeAntigo):
-            indice = self.alunos.index(nomeAntigo)
-            self.alunos[indice] = nomeNovo
-            print("Nome do aluno alterado com sucesso! ")
-            return True
-        return False
-    
-    def deletarAluno(self, alunoDeletar):  # vai remover o aluno da list do sistema
-        if self.buscarAluno(alunoDeletar):
-            self.alunos.remove(alunoDeletar)
-            print("aluno deletado do sistema com sucesso!")
-            return True
-        return False
+    def cadastrarEndereco(self):
+        self.setEndereco(Endereco.Endereco().cadastrarEndereco())
+
+    def cadastrarCurso(self):
+        self.setCurso(Curso.Curso().cadastrarCurso())
+
+    def cadastrarDisciplina(self):
+        self.setDisciplina(Disciplina.Disciplina().cadastrarDisciplina())
     
     def mostrarEndereco(self):  # vai mostrar o endereço do aluno
-        return self.endereco
-    
-    def mostrarAlunos(self):  # vai mostrar todos os alunos cadastrados, será que essa função é realmente necessária?
-        return self.alunos
+        return print(self.endereco)
     
     def setNome(self, nome)-> None:  # vai colocar o nome no aluno
         self.nome = nome
-        self.alunos.append(nome)  # usada para os testes funcionarem
 
-    def setEndereco(self)-> None:  # vai colocar o endereço no aluno
-        self.endereco = Endereco.Endereco().cadastrarEndereco()
+    def setMatricula(self, matricula)-> None:
+        self.matricula = matricula
 
-    def setCurso(self):
-        self.curso = Curso.Curso().cadastrarCurso()
+    def setEndereco(self, endereco)-> None:  # vai colocar o endereço no aluno
+        self.endereco = endereco
+
+    def setCurso(self, curso)-> None:
+        self.curso = curso
     
-    def setDisciplina(self):
-        self.disciplina = Disciplina.Disciplina().cadastrarDisciplina()
-    
-    def setSala(self):
-        self.sala = Sala.Sala().cadastrarSala()
+    def setDisciplina(self, disciplina)-> None:
+        self.disciplinas.append(disciplina)
     
     def __repr__(self) -> str:  # garante que o nome seja mostrado em string legivel
-        return f"Aluno: {self.nome}"
+        return f"Aluno: {self.nome}, Matricula: {self.matricula}"
 
