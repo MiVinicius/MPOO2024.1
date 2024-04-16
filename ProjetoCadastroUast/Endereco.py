@@ -29,7 +29,7 @@ class Endereco():
         self.cidade = None
         print("Endereço deletado com sucesso.")
 
-    def mostrarEndereco(self):  # retorna a função de baixo para mostrar os dados
+    def mostrarEndereco(self):  # retorna a função de baixo para mostrar os dados em caso de instancia desta classe sozinha, print também serve
         return print(self.__repr__())
 
     def setRua(self, rua):

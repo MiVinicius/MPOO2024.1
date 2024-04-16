@@ -35,4 +35,7 @@ class Disciplina():
     
     def getNome(self):
         return self.nome
+    
+    def __repr__(self) -> str:
+        return f"Disciplina: {self.nome}, {self.sala}"
         

@@ -31,3 +31,6 @@ class Sala():
     
     def getBlocoNumero(self):
         return self.blocoNumero
+    
+    def __repr__(self) -> str:
+        return f"Sala: {self.salaNumero}, Bloco: {self.blocoNumero}"

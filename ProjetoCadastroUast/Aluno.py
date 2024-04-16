@@ -35,17 +35,32 @@ class Aluno():
     def setNome(self, nome)-> None:  # vai colocar o nome no aluno
         self.nome = nome
 
+    def getNome(self):
+        return self.nome
+    
     def setMatricula(self, matricula)-> None:
         self.matricula = matricula
+
+    def getMatricula(self):
+        return self.matricula
 
     def setEndereco(self, endereco)-> None:  # vai colocar o endereço no aluno
         self.endereco = endereco
 
+    def getEndereco(self): # ja tem uma função pra mostrar o endereço
+        return self.endereco
+
     def setCurso(self, curso)-> None:
         self.curso = curso
     
+    def getCurso(self):
+        return self.curso
+
     def setDisciplina(self, disciplina)-> None:
         self.disciplinas.append(disciplina)
+
+    def getDisciplina(self):
+        return self.disciplinas   
     
     def __repr__(self) -> str:  # garante que o nome seja mostrado em string legivel
         return f"Aluno: {self.nome}, Matricula: {self.matricula}"

@@ -38,3 +38,6 @@ class Curso():
     
     def getDiciplinas(self):
         return self.disciplinas
+    
+    def __repr__(self) -> str:
+        return f"curso(s): {self.nome}, Disciplina(s): {self.disciplinas}"
