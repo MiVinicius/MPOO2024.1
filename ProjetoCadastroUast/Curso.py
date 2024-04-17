@@ -19,9 +19,12 @@ class Curso():
         self.__nome = None
         self.__disciplinas = None
         print("Cursos deletados com sucesso!")
+        
+    def mostrarCurso(self):
+        return print(self.getNome())
     
     def mostrarDisciplinas(self):
-        return self.__disciplinas
+        return print(self.getDisciplinas())
 
     def setNome(self, nome):
         self.__nome = nome

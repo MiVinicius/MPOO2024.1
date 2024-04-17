@@ -15,6 +15,9 @@ class Disciplina():
 
     def cadastrarSala(self):
         self.setSala(Sala().cadastrarSala())
+        
+    def mostrarDisciplina(self):
+        return print(self.getNome(), self.getSala())
 
     def deletarDisciplina(self):
         self.__nome = None

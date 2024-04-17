@@ -12,6 +12,9 @@ class Sala():
         print("Sala e bloco cadastrados com sucesso!")
         return self
     
+    def mostrarSala(self):
+        return print(self.getSalaNumero(), self.getBlocoNumero())
+    
     def deletarSala(self):
         self.__numero = None
         self.__bloco = None

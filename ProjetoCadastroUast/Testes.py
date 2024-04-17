@@ -11,10 +11,12 @@ def testesAluno():
 
     print("===========================" * 6)
     aluno1 = Aluno()
+    # aluno1.cadastrarAluno()
     aluno1.setNome("jill")
     aluno1.setMatricula("A001")
 
     endereco1 = Endereco()
+    # endereco1.cadastrarEndereco()
     endereco1.setRua("rua 1")
     endereco1.setBairro("vila bela")
     endereco1.setNumero(110)
@@ -22,10 +24,13 @@ def testesAluno():
     aluno1.setEndereco(endereco1)
 
     curso1 = Curso()
+    # curso1.cadastrarCurso()
     curso1.setNome("bsi")
     disciplina1 = Disciplina()
+    # disciplina1.cadastrarDisciplina()
     disciplina1.setNome("MPOO")
     sala1 = Sala()
+    # sala1.cadastrarSala()
     sala1.setSalaNumero(12)
     sala1.setBlocoNumero(2)
     disciplina1.setSala(sala1)
@@ -47,19 +52,24 @@ def testesAluno():
 def testesProfessor():
     print("===========================" * 6)
     professor1 = Professor()
+    # professor1.cadastrarProfessor()
     professor1.setNome("luiz")
 
     endereco2 = Endereco()
+    # endereco2.cadastrarEndereco()
     endereco2.setRua("rua 3")
     endereco2.setBairro("caxixola")
     endereco2.setNumero(9)
     endereco2.setCidade("serra talhada")
 
     curso2 = Curso()
+    # curso2.cadastrarCurso()
     curso2.setNome("letras")
     disciplina2 = Disciplina()
+    # disciplina2.cadastrarDisciplina()
     disciplina2.setNome("libras")
     sala2 = Sala()
+    # sala2.cadastrarSala()
     sala2.setSalaNumero(3)
     sala2.setBlocoNumero(1)
     disciplina2.setSala(sala2)
@@ -78,33 +88,62 @@ def testesProfessor():
 def testesEndereco():
     print("===========================" * 6)
     endereco = Endereco()
+    # endereco.cadastrarEndereco()
     endereco.setRua("Rua calango")
     endereco.setBairro("Bairro calango")
     endereco.setNumero(00)
     endereco.setCidade("Cidade calango")
     endereco.mostrarEndereco()
+    endereco.deletarEndereco() # funciona!
 
     print("===========================" * 6)
+
+def testesCurso():
+    curso = Curso()
+    # curso.cadastrarCurso()
+    curso.setNome("eletronica")
+    disciplina10 = Disciplina()
+    disciplina10.setNome("matematica")
+    sala55= Sala()
+    sala55.setSalaNumero(67)
+    sala55.setBlocoNumero(34)
+    disciplina10.setSala(sala55)
+    curso.setDisciplina(disciplina10)
+    curso.mostrarCurso()
+    curso.mostrarDisciplinas()
+    curso.deletarCursos()
 
 def testesDisciplina():
     print("===========================" * 6)
     disciplina3 = Disciplina()
-    disciplina3.cadastrarDisciplina()
+    # disciplina3.cadastrarDisciplina()
+    disciplina3.setNome("geografia")
+    sala5= Sala()
+    sala5.setSalaNumero(67)
+    sala5.setBlocoNumero(34)
+    disciplina3.setSala(sala5)
+    disciplina3.mostrarDisciplina()
+    disciplina3.deletarDisciplina() # funciona!
 
     print("===========================" * 6)
     
 def testesSala():
-    pass
+    sala = Sala()
+    # sala.cadastrarSala()
+    sala.setSalaNumero(979)
+    sala.setBlocoNumero(434)
+    sala.mostrarSala()
+    sala.deletarSala() # funciona!
 
 
 
-def testesCursos():
-    pass
 
-
-# testesAluno()
-# testesProfessor()
-
+testesAluno()
+testesProfessor()
+testesEndereco()
+testesDisciplina()
+testesSala()
+testesCurso()
 
 
 
