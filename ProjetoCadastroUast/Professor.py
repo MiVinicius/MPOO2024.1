@@ -14,7 +14,7 @@ class Professor():
     def cadastrarProfessor(self): # pode colocar nomes iguais
         profNome = str(input("Digite o nome do professor: \n"))
         self.setNome(profNome)
-        cpf = str(input("Digite o __cpf: \n"))
+        cpf = str(input("Digite o cpf: \n"))
         self.setCpf(cpf)
         self.cadastrarEndereco()
         self.cadastrarCurso()
@@ -35,7 +35,6 @@ class Professor():
 
     def deletarProfessor(self):
         del self
-        print("professor foi pras cucuias")
     
     def setNome(self, profNome):
         self.__nome = profNome

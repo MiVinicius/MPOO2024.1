@@ -33,9 +33,8 @@ class Aluno():
     def mostrarEndereco(self):  # vai mostrar o endereço do aluno
         return print(self.__endereco)
     
-    def deletarAluno(self): # aluno foi pras cucuias
+    def deletarAluno(self): 
         del self
-        print("aluno foi pras cucuias")
     
     def setNome(self, nome)-> None:  # vai colocar o nome no aluno
         self.__nome = nome

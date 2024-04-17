@@ -6,6 +6,7 @@ clear = lambda: os.system('cls')  # vai limpar a tela do terminal
 
 def menu():
     while True:
+        clear()
         print('''   
    ####     ##     #####      ##      #####   ######   ######    #####            #####    #######             ##     ####     ##   ##  ##   ##   #####    #####
   ##  ##   ####     ## ##    ####    ##   ##  # ## #    ##  ##  ##   ##            ## ##    ##   #            ####     ##      ##   ##  ###  ##  ##   ##  ##   ##
