@@ -1,5 +1,6 @@
-import Endereco, Curso, Disciplina, Sala
-
+from Endereco import Endereco
+from Curso import Curso
+from Disciplina import Disciplina
 
 class Aluno(): 
 
@@ -18,16 +19,16 @@ class Aluno():
         self.cadastrarEndereco()
         self.cadastrarCurso()
         self.cadastrarDisciplina()
-        return print("cadastro do aluno concluido")
+        return print("cadastro concluido, ", self, self.getCurso, self.getEndereco)
     
     def cadastrarEndereco(self):
-        self.setEndereco(Endereco.Endereco().cadastrarEndereco())
+        self.setEndereco(Endereco().cadastrarEndereco())
 
     def cadastrarCurso(self):
-        self.setCurso(Curso.Curso().cadastrarCurso())
+        self.setCurso(Curso().cadastrarCurso())
 
     def cadastrarDisciplina(self):
-        self.setDisciplina(Disciplina.Disciplina().cadastrarDisciplina())
+        self.setDisciplina(Disciplina().cadastrarDisciplina())
     
     def mostrarEndereco(self):  # vai mostrar o endereço do aluno
         return print(self.__endereco)

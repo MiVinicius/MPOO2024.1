@@ -1,27 +1,31 @@
-import Aluno, Endereco, Professor, Curso, Disciplina, Sala
-
+from Aluno import Aluno
+from Endereco import Endereco
+from Curso import Curso
+from Disciplina import Disciplina
+from Professor import Professor
+from Sala import Sala
 
 # arquivo para testes
 
 def testesAluno():
 
     print("===========================" * 6)
-    aluno1 = Aluno.Aluno()
+    aluno1 = Aluno()
     aluno1.setNome("jill")
     aluno1.setMatricula("A001")
 
-    endereco1 = Endereco.Endereco()
+    endereco1 = Endereco()
     endereco1.setRua("rua 1")
     endereco1.setBairro("vila bela")
     endereco1.setNumero(110)
     endereco1.setCidade("serra talhada")
     aluno1.setEndereco(endereco1)
 
-    curso1 = Curso.Curso()
+    curso1 = Curso()
     curso1.setNome("bsi")
-    disciplina1 = Disciplina.Disciplina()
+    disciplina1 = Disciplina()
     disciplina1.setNome("MPOO")
-    sala1 = Sala.Sala()
+    sala1 = Sala()
     sala1.setSalaNumero(12)
     sala1.setBlocoNumero(2)
     disciplina1.setSala(sala1)
@@ -42,22 +46,22 @@ def testesAluno():
     
 def testesProfessor():
     print("===========================" * 6)
-    professor1 = Professor.Professor()
+    professor1 = Professor()
     professor1.setNome("luiz")
     professor1.setCpf("12345678910")
 
-    endereco2 = Endereco.Endereco()
+    endereco2 = Endereco()
     endereco2.setRua("rua 3")
     endereco2.setBairro("caxixola")
     endereco2.setNumero(9)
     endereco2.setCidade("serra talhada")
     professor1.setEndereco(endereco2)
 
-    curso2 = Curso.Curso()
+    curso2 = Curso()
     curso2.setNome("letras")
-    disciplina2 = Disciplina.Disciplina()
+    disciplina2 = Disciplina()
     disciplina2.setNome("libras")
-    sala2 = Sala.Sala()
+    sala2 = Sala()
     sala2.setSalaNumero(3)
     sala2.setBlocoNumero(1)
     disciplina2.setSala(sala2)
@@ -80,7 +84,7 @@ testesAluno()
 testesProfessor()
 
 
-# endereco = Endereco.Endereco()
+# endereco = Endereco()
 # endereco.setRua("Rua calango")
 # endereco.setBairro("Bairro calango")
 # endereco.setNumero(00)

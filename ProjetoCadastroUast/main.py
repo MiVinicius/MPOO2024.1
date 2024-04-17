@@ -1,5 +1,6 @@
-import Aluno, Professor, os
-
+from Aluno import Aluno
+from Professor import Professor
+import os
 
 clear = lambda: os.system('cls')  # vai limpar a tela do terminal
 
@@ -30,10 +31,12 @@ def menu():
         match opcoes:
             case "1":
                 clear()
-                Aluno.Aluno().cadastrarAluno()
+                Aluno().cadastrarAluno()
+                input("pressione enter para continuar...")
             case "2":
                 clear()
-                Professor.Professor().cadastrarProfessor()
+                Professor().cadastrarProfessor()
+                input("pressione enter para continuar...")
             case "3":
                 clear()
                 break

@@ -1,4 +1,4 @@
-import Sala
+from Sala import Sala
 
 class Disciplina():
     
@@ -17,7 +17,7 @@ class Disciplina():
         return None
 
     def cadastrarSala(self):
-        self.setSala(Sala.Sala().cadastrarSala())
+        self.setSala(Sala().cadastrarSala())
 
     def deletarDisciplina(self):
         self.__nome = None

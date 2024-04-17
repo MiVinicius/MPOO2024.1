@@ -1,5 +1,4 @@
-import Disciplina
-
+from Disciplina import Disciplina
 
 class Curso():
 
@@ -17,7 +16,7 @@ class Curso():
         return None
     
     def cadastrarDisciplina(self):
-        self.setDisciplina(Disciplina.Disciplina().cadastrarDisciplina())
+        self.setDisciplina(Disciplina().cadastrarDisciplina())
     
     def deletarCursos(self): # envia os cursos pras cucuias
         self.__nome = None
