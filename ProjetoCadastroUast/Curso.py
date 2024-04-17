@@ -11,6 +11,7 @@ class Curso():
         if nome:
             self.setNome(nome)
             print("Curso cadastrado com sucesso!")
+            # self.cadastrarDisciplina() # ai é regra de negócio
             return self
         print("curso não cadastrado!")
         return None
@@ -39,4 +40,4 @@ class Curso():
         return self.__disciplinas
     
     def __repr__(self) -> str:
-        return f"curso(s): {self.__nome}, Disciplina(s): {self.__disciplinas}"
+        return f"curso(s): {self.__nome}"

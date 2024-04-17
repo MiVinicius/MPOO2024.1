@@ -19,7 +19,6 @@ def menu():
              ''')
         print("===========================" * 6)
         print("Só cadastro mesmo!")
-        print("Se bem que poderia mostrar todos os dados depois do cadastro...")
         print("Muitas funções criadas não implementadas no menu!")
         print("===========================" * 6)
         print("1 - cadastrar aluno - requer cadastro do endereço, curso e disciplina e sala")
