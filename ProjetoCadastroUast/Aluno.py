@@ -19,7 +19,7 @@ class Aluno():
         self.cadastrarEndereco()
         self.cadastrarCurso()
         self.cadastrarDisciplina()
-        return print("cadastro concluido, ", self, self.getCurso, self.getEndereco)
+        return print("cadastro concluido, ", self, self.getCurso(), self.getEndereco())
     
     def cadastrarEndereco(self):
         self.setEndereco(Endereco().cadastrarEndereco())
@@ -28,7 +28,7 @@ class Aluno():
         self.setCurso(Curso().cadastrarCurso())
 
     def cadastrarDisciplina(self):
-        self.setDisciplina(Disciplina().cadastrarDisciplina())
+        self.setDisciplina(Curso.cadastrarDisciplina(self))
     
     def mostrarEndereco(self):  # vai mostrar o endereço do aluno
         return print(self.__endereco)

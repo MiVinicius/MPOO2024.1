@@ -19,7 +19,7 @@ class Professor():
         self.cadastrarEndereco()
         self.cadastrarCurso()
         self.cadastrarDisciplina()
-        return print("Cadastro concluido!")
+        return print("Cadastro concluido!", self, self.getCurso(), self.getEndereco())
     
     def cadastrarEndereco(self):
         self.setEndereco(Endereco().cadastrarEndereco())
@@ -28,7 +28,7 @@ class Professor():
         self.setCurso(Curso().cadastrarCurso())
 
     def cadastrarDisciplina(self):
-        self.setDisciplina(Disciplina().cadastrarDisciplina())
+        self.setDisciplina(Curso.cadastrarDisciplina())
 
     def mostrarEndereco(self):  # essa função deveria existir?
         return print(self.__endereco)
