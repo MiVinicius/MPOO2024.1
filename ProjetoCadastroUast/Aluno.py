@@ -1,17 +1,16 @@
 from Endereco import Endereco
 from Curso import Curso
-from Disciplina import Disciplina
 
 class Aluno(): 
 
-    def __init__(self) -> None:  #vai criar o objeto, mas ele é vazio
+    def __init__(self) -> None:  
         self.__nome = None
         self.__matricula = None
         self.__endereco = None
         self.__curso = None
         self.__disciplinas = []
 
-    def cadastrarAluno(self):  # vai cadastrar o aluno, requer varios cadastros
+    def cadastrarAluno(self):  
         nome = str(input("Digite o nome do aluno: \n"))
         self.setNome(nome)
         matricula = str(input("Digite a matricula do aluno: \n"))
@@ -22,6 +21,7 @@ class Aluno():
         print("===========================" * 6)
         return print("cadastro concluido, ", self, self.getCurso(), self.getDisciplina(), self.getEndereco())
         
+        
     def cadastrarEndereco(self):
         self.setEndereco(Endereco().cadastrarEndereco())
 
@@ -31,13 +31,13 @@ class Aluno():
     def cadastrarDisciplina(self):
         self.setDisciplina(Curso.cadastrarDisciplina(self))
     
-    def mostrarEndereco(self):  # vai mostrar o endereço do aluno
+    def mostrarEndereco(self):  
         return print(self.__endereco)
     
     def deletarAluno(self): 
         del self
     
-    def setNome(self, nome)-> None:  # vai colocar o nome no aluno
+    def setNome(self, nome)-> None: 
         self.__nome = nome
 
     def getNome(self):
@@ -49,10 +49,10 @@ class Aluno():
     def getMatricula(self):
         return self.__matricula
 
-    def setEndereco(self, endereco)-> None:  # vai colocar o endereço no aluno
+    def setEndereco(self, endereco)-> None:  
         self.__endereco = endereco
 
-    def getEndereco(self): # ja tem uma função pra mostrar o endereço
+    def getEndereco(self): 
         return self.__endereco
 
     def setCurso(self, curso)-> None:
@@ -67,6 +67,6 @@ class Aluno():
     def getDisciplina(self):
         return self.__disciplinas   
     
-    def __repr__(self) -> str:  # garante que o nome seja mostrado em string legivel
+    def __repr__(self) -> str:  
         return f"Aluno: {self.__nome}, Matricula: {self.__matricula}"
 

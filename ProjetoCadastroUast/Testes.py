@@ -32,7 +32,7 @@ def testesAluno():
     curso1.setDisciplina(disciplina1)
     aluno1.setCurso(curso1)
     aluno1.setDisciplina(disciplina1)
-    aluno1.getCurso().getDisciplinas()  # There's something inside you...
+    aluno1.getCurso().getDisciplinas()  
 
     print(aluno1)
     aluno1.mostrarEndereco()
@@ -41,7 +41,7 @@ def testesAluno():
     print(aluno1.getMatricula())
     print(aluno1.getCurso())
     print(aluno1.getDisciplina())
-    print(aluno1.getCurso().getDisciplinas())  # it's hard to explain...
+    print(aluno1.getCurso().getDisciplinas())  
     print("===========================" * 6)
     
 def testesProfessor():
@@ -68,7 +68,7 @@ def testesProfessor():
     curso2.setDisciplina(disciplina2)
     professor1.setCurso(curso2)
     professor1.setDisciplina(disciplina2)
-    professor1.getCurso().getDisciplinas() # They're talking about you, boy...
+    professor1.getCurso().getDisciplinas() 
 
     print(professor1)
     professor1.mostrarEndereco() 
@@ -77,7 +77,7 @@ def testesProfessor():
     print(professor1.getCpf())
     print(professor1.getCurso())
     print(professor1.getDisciplina())
-    print(professor1.getCurso().getDisciplinas())  # But you're still the same...
+    print(professor1.getCurso().getDisciplinas()) 
     print("===========================" * 6)
 
 testesAluno()

@@ -1,5 +1,6 @@
 from Aluno import Aluno
 from Professor import Professor
+from Testes import testesAluno, testesProfessor
 import os
 
 clear = lambda: os.system('cls')  # vai limpar a tela do terminal
@@ -23,7 +24,8 @@ def menu():
         print("===========================" * 6)
         print("1 - cadastrar aluno - requer cadastro do endereço, curso e disciplina e sala")
         print("2 - cadastrar professor - requer cadastro do endereço, curso e disciplina e sala")
-        print("3 - sair")
+        print("3 - Rodar testes")
+        print("4 - sair")
         print("===========================" * 6)
 
         opcoes = str(input("o que deseja fazer? "))
@@ -38,6 +40,11 @@ def menu():
                 Professor().cadastrarProfessor()
                 input("pressione enter para continuar...")
             case "3":
+                clear()
+                testesAluno()
+                testesProfessor()
+                input("pressione enter para continuar...")
+            case "4":
                 clear()
                 break
 

@@ -6,7 +6,7 @@ class Endereco():
         self.__numero = None
         self.__cidade = None
 
-    def cadastrarEndereco(self):  # é só não colocar nada na entrada que dá bom
+    def cadastrarEndereco(self):  
         rua = str(input("Digite o nome da rua: \n"))
         if rua:
             Endereco.setRua(self, rua)
@@ -29,7 +29,7 @@ class Endereco():
         self.__cidade = None
         print("Endereço deletado com sucesso.")
 
-    def mostrarEndereco(self):  # retorna a função de baixo para mostrar os dados em caso de instancia desta classe sozinha
+    def mostrarEndereco(self):  
         return print(self.__repr__())
 
     def setRua(self, rua):

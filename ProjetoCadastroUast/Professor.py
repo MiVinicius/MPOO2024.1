@@ -1,6 +1,5 @@
 from Endereco import Endereco
 from Curso import Curso
-from Disciplina import Disciplina
 
 class Professor():
 
@@ -11,7 +10,7 @@ class Professor():
         self.__curso = None
         self.__disciplina = None
 
-    def cadastrarProfessor(self): # pode colocar nomes iguais
+    def cadastrarProfessor(self): 
         profNome = str(input("Digite o nome do professor: \n"))
         self.setNome(profNome)
         cpf = str(input("Digite o cpf: \n"))
@@ -21,7 +20,7 @@ class Professor():
         self.cadastrarDisciplina()
         print("===========================" * 6)
         return print("Cadastro concluido, ", self, self.getCurso(), self.getDisciplina(), self.getEndereco())
-    
+        
     def cadastrarEndereco(self):
         self.setEndereco(Endereco().cadastrarEndereco())
 
@@ -31,7 +30,7 @@ class Professor():
     def cadastrarDisciplina(self):
         self.setDisciplina(Curso.cadastrarDisciplina(self))
 
-    def mostrarEndereco(self):  # essa função deveria existir?
+    def mostrarEndereco(self):  
         return print(self.__endereco)
 
     def deletarProfessor(self):
@@ -52,7 +51,7 @@ class Professor():
     def setEndereco(self, endereco):
         self.__endereco = endereco
 
-    def getEndereco(self): # ja tem uma função pra mostrar o endereço
+    def getEndereco(self): 
         return self.__endereco
 
     def setCurso(self, curso):
@@ -67,6 +66,6 @@ class Professor():
     def getDisciplina(self):
         return self.__disciplina
 
-    def __repr__(self) -> str:  # garante que o nome seja mostrado em string legivel
+    def __repr__(self) -> str:  
         return f"Professor: {self.__nome}, CPF: {self.__cpf}"
         
