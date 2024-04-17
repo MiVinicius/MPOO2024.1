@@ -4,8 +4,8 @@ import Disciplina
 class Curso():
 
     def __init__(self) -> None:
-        self.nome = None
-        self.disciplinas = []  
+        self.__nome = None
+        self.__disciplinas = []  
         
     def cadastrarCurso(self):
         nome = str(input("Digite o nome do curso: \n"))
@@ -20,24 +20,24 @@ class Curso():
         self.setDisciplina(Disciplina.Disciplina().cadastrarDisciplina())
     
     def deletarCursos(self): # envia os cursos pras cucuias
-        self.nome = None
-        self.disciplinas = None
+        self.__nome = None
+        self.__disciplinas = None
         print("Cursos deletados com sucesso!")
     
     def mostrarDisciplinas(self):
-        return self.disciplinas
+        return self.__disciplinas
 
     def setNome(self, nome):
-        self.nome = nome
+        self.__nome = nome
 
     def setDisciplina(self, disciplina):
-        self.disciplinas.append(disciplina)
+        self.__disciplinas.append(disciplina)
 
     def getNome(self):
-        return self.nome
+        return self.__nome
     
-    def getDiciplinas(self):
-        return self.disciplinas
+    def getDisciplinas(self):
+        return self.__disciplinas
     
     def __repr__(self) -> str:
-        return f"curso(s): {self.nome}, Disciplina(s): {self.disciplinas}"
+        return f"curso(s): {self.__nome}, Disciplina(s): {self.__disciplinas}"

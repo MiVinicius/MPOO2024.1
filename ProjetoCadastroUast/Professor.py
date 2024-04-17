@@ -4,16 +4,16 @@ import Endereco, Curso, Disciplina, Sala
 class Professor():
 
     def __init__(self) -> None:
-        self.nome = None
-        self.cpf = None
-        self.endereco = None
-        self.curso = None
-        self.disciplina = None
+        self.__nome = None
+        self.__cpf = None
+        self.__endereco = None
+        self.__curso = None
+        self.__disciplina = None
 
     def cadastrarProfessor(self): # pode colocar nomes iguais
-        profNome = str(input("Digite o nome do professor: "))
+        profNome = str(input("Digite o nome do professor: \n"))
         self.setNome(profNome)
-        cpf = str(input("Digite o cpf: \n"))
+        cpf = str(input("Digite o __cpf: \n"))
         self.setCpf(cpf)
         self.cadastrarEndereco()
         self.cadastrarCurso()
@@ -30,38 +30,42 @@ class Professor():
         self.setDisciplina(Disciplina.Disciplina().cadastrarDisciplina())
 
     def mostrarEndereco(self):  # essa função deveria existir?
-        return print(self.endereco)
+        return print(self.__endereco)
 
+    def deletarProfessor(self):
+        del self
+        print("professor foi pras cucuias")
+    
     def setNome(self, profNome):
-        self.nome = profNome
+        self.__nome = profNome
     
     def getNome(self):
-        return self.nome
+        return self.__nome
 
     def setCpf(self, cpf):
-        self.cpf = cpf
+        self.__cpf = cpf
 
     def getCpf(self):
-        return self.cpf
+        return self.__cpf
 
     def setEndereco(self, endereco):
-        self.endereco = endereco
+        self.__endereco = endereco
 
     def getEndereco(self): # ja tem uma função pra mostrar o endereço
-        return self.endereco
+        return self.__endereco
 
     def setCurso(self, curso):
-        self.curso = curso
+        self.__curso = curso
 
     def getCurso(self):
-        return self.curso
+        return self.__curso
     
     def setDisciplina(self, disciplina):
-        self.disciplina = disciplina
+        self.__disciplina = disciplina
     
     def getDisciplina(self):
-        return self.disciplina
+        return self.__disciplina
 
     def __repr__(self) -> str:  # garante que o nome seja mostrado em string legivel
-        return f"Professor: {self.nome}, CPF: {self.cpf}"
+        return f"Professor: {self.__nome}, CPF: {self.__cpf}"
         

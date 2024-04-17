@@ -3,11 +3,11 @@ import Sala
 class Disciplina():
     
     def __init__(self) -> None:
-        self.nome = None
-        self.sala = None
+        self.__nome = None
+        self.__sala = None
 
     def cadastrarDisciplina(self):
-        disciplina = str(input("Digite o nome da disciplina: "))
+        disciplina = str(input("Digite o nome da disciplina: \n"))
         if disciplina:
             self.setNome(disciplina)
             self.cadastrarSala() 
@@ -20,22 +20,22 @@ class Disciplina():
         self.setSala(Sala.Sala().cadastrarSala())
 
     def deletarDisciplina(self):
-        self.nome = None
-        self.sala = None
+        self.__nome = None
+        self.__sala = None
         print("Disciplina deletada com sucesso!")
 
     def setNome(self, disciplina):
-        self.nome = disciplina
+        self.__nome = disciplina
 
     def setSala(self, sala):
-        self.sala = sala
+        self.__sala = sala
 
     def getSala(self):
-        return self.sala
+        return self.__sala
     
     def getNome(self):
-        return self.nome
+        return self.__nome
     
     def __repr__(self) -> str:
-        return f"Disciplina: {self.nome}, {self.sala}"
+        return f"Disciplina: {self.__nome}, {self.__sala}"
         

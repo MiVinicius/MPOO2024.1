@@ -1,11 +1,10 @@
-import Aluno, Professor, Curso, Disciplina, Sala, os
+import Aluno, Professor, os
 
 
 clear = lambda: os.system('cls')  # vai limpar a tela do terminal
 
 def menu():
     while True:
-        clear()
         print('''   
    ####     ##     #####      ##      #####   ######   ######    #####            #####    #######             ##     ####     ##   ##  ##   ##   #####    #####
   ##  ##   ####     ## ##    ####    ##   ##  # ## #    ##  ##  ##   ##            ## ##    ##   #            ####     ##      ##   ##  ###  ##  ##   ##  ##   ##
@@ -17,7 +16,9 @@ def menu():
 
              ''')
         print("===========================" * 6)
-        print("Conta de Administrador Ativada")
+        print("Só cadastro mesmo!")
+        print("Se bem que poderia mostrar todos os dados depois do cadastro...")
+        print("Muitas funções criadas não implementadas no menu!")
         print("===========================" * 6)
         print("1 - cadastrar aluno - requer cadastro do endereço, curso e disciplina e sala")
         print("2 - cadastrar professor - requer cadastro do endereço, curso e disciplina e sala")

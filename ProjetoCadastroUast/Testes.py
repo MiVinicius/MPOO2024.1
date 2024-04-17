@@ -5,6 +5,7 @@ import Aluno, Endereco, Professor, Curso, Disciplina, Sala
 
 def testesAluno():
 
+    print("===========================" * 6)
     aluno1 = Aluno.Aluno()
     aluno1.setNome("jill")
     aluno1.setMatricula("A001")
@@ -17,7 +18,7 @@ def testesAluno():
     aluno1.setEndereco(endereco1)
 
     curso1 = Curso.Curso()
-    curso1.setNome("curso bsi")
+    curso1.setNome("bsi")
     disciplina1 = Disciplina.Disciplina()
     disciplina1.setNome("MPOO")
     sala1 = Sala.Sala()
@@ -27,7 +28,7 @@ def testesAluno():
     curso1.setDisciplina(disciplina1)
     aluno1.setCurso(curso1)
     aluno1.setDisciplina(disciplina1)
-
+    aluno1.getCurso().getDisciplinas()  # There's something inside you...
 
     print(aluno1)
     aluno1.mostrarEndereco()
@@ -36,8 +37,11 @@ def testesAluno():
     print(aluno1.getMatricula())
     print(aluno1.getCurso())
     print(aluno1.getDisciplina())
-
+    print(aluno1.getCurso().getDisciplinas())  # it's hard to explain...
+    print("===========================" * 6)
+    
 def testesProfessor():
+    print("===========================" * 6)
     professor1 = Professor.Professor()
     professor1.setNome("luiz")
     professor1.setCpf("12345678910")
@@ -50,7 +54,7 @@ def testesProfessor():
     professor1.setEndereco(endereco2)
 
     curso2 = Curso.Curso()
-    curso2.setNome("curso letras")
+    curso2.setNome("letras")
     disciplina2 = Disciplina.Disciplina()
     disciplina2.setNome("libras")
     sala2 = Sala.Sala()
@@ -60,6 +64,7 @@ def testesProfessor():
     curso2.setDisciplina(disciplina2)
     professor1.setCurso(curso2)
     professor1.setDisciplina(disciplina2)
+    professor1.getCurso().getDisciplinas() # They're talking about you, boy...
 
     print(professor1)
     professor1.mostrarEndereco() 
@@ -68,7 +73,8 @@ def testesProfessor():
     print(professor1.getCpf())
     print(professor1.getCurso())
     print(professor1.getDisciplina())
-
+    print(professor1.getCurso().getDisciplinas())  # But you're still the same...
+    print("===========================" * 6)
 
 testesAluno()
 testesProfessor()

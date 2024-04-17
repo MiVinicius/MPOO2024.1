@@ -1,10 +1,10 @@
 class Endereco():
 
     def __init__(self) -> None:
-        self.rua = None
-        self.bairro = None
-        self.numero = None
-        self.cidade = None
+        self.__rua = None
+        self.__bairro = None
+        self.__numero = None
+        self.__cidade = None
 
     def cadastrarEndereco(self):  # é só não colocar nada na entrada que dá bom
         rua = str(input("Digite o nome da rua: \n"))
@@ -13,7 +13,7 @@ class Endereco():
         bairro = str(input("Digite o nome do bairro: \n"))
         if bairro: 
             Endereco.setBairro(self, bairro)
-        numero = int(input("Digite o nome do numero: \n"))
+        numero = int(input("Digite o número: \n"))
         if numero:
             Endereco.setNumero(self, numero)
         cidade = str(input("Digite o nome da cidade: \n"))
@@ -23,38 +23,38 @@ class Endereco():
         return self
     
     def deletarEndereco(self):  # se chamar com algum professor ou aluno, o endereço vai a None
-        self.rua = None
-        self.bairro = None
-        self.numero = None
-        self.cidade = None
+        self.__rua = None
+        self.__bairro = None
+        self.__numero = None
+        self.__cidade = None
         print("Endereço deletado com sucesso.")
 
-    def mostrarEndereco(self):  # retorna a função de baixo para mostrar os dados em caso de instancia desta classe sozinha, print também serve
+    def mostrarEndereco(self):  # retorna a função de baixo para mostrar os dados em caso de instancia desta classe sozinha
         return print(self.__repr__())
 
     def setRua(self, rua):
-        self.rua = rua
+        self.__rua = rua
 
     def setBairro(self, bairro):
-        self.bairro = bairro
+        self.__bairro = bairro
 
     def setNumero(self, numero):
-        self.numero = numero
+        self.__numero = numero
 
     def setCidade(self, cidade):
-        self.cidade = cidade
+        self.__cidade = cidade
 
     def getRua (self):
-        return self.rua
+        return self.__rua
     
     def getBairro(self):
-        return self.bairro
+        return self.__bairro
     
     def getNumero(self):
-        return self.numero
+        return self.__numero
     
     def getCidade(self):
-        return self.cidade
+        return self.__cidade
 
     def __repr__(self) -> str:
-        return f"Rua: {self.rua}, Bairro: {self.bairro}, Número: {self.numero}, Cidade: {self.cidade}"
+        return f"Rua: {self.__rua}, Bairro: {self.__bairro}, Número: {self.__numero}, Cidade: {self.__cidade}"
