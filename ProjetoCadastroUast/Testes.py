@@ -11,7 +11,7 @@ def testesAluno():
 
     print("===========================" * 6)
     aluno1 = Aluno()
-    # aluno1.cadastrarAluno()
+    # aluno1.cadastrarAluno()  # esses metodos funcionam, foram comentados por conta da praticidade de testar mais rápido
     aluno1.setNome("jill")
     aluno1.setMatricula("A001")
 

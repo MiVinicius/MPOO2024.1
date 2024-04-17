@@ -18,7 +18,7 @@ class Endereco():
         print("cadastro do endereço concluido")
         return self
     
-    def deletarEndereco(self):  # se chamar com algum professor ou aluno, o endereço vai a None
+    def deletarEndereco(self):  # se chamar com algum aluno, o endereço vai a None
         self.__rua = None
         self.__bairro = None
         self.__numero = None

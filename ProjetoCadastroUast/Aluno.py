@@ -58,7 +58,7 @@ class Aluno():
     def getCurso(self):
         return self.__curso
 
-    def setDisciplina(self, disciplina):
+    def setDisciplina(self, disciplina):  # por algum motivo isso retona um None adicional...
         self.__disciplinas.append(disciplina)
 
     def getDisciplina(self):
