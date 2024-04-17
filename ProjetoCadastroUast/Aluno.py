@@ -16,12 +16,9 @@ class Aluno():
         matricula = str(input("Digite a matricula do aluno: \n"))
         self.setMatricula(matricula)
         self.cadastrarEndereco()
-        self.cadastrarCurso()
-        self.cadastrarDisciplina()
         print("===========================" * 6)
-        return print("cadastro concluido, ", self, self.getCurso(), self.getDisciplina(), self.getEndereco())
-        
-        
+        return print("cadastro concluido, ", self)
+    
     def cadastrarEndereco(self):
         self.setEndereco(Endereco().cadastrarEndereco())
 

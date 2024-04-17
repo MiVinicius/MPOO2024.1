@@ -8,13 +8,10 @@ class Disciplina():
 
     def cadastrarDisciplina(self):
         disciplina = str(input("Digite o nome da disciplina: \n"))
-        if disciplina:
-            self.setNome(disciplina)
-            self.cadastrarSala() 
-            print("Diciplina cadastrada com sucesso!")
-            return self
-        print("Disciplina não cadastrada")
-        return None
+        self.setNome(disciplina)
+        self.cadastrarSala() 
+        print("Diciplina cadastrada com sucesso!")
+        return self
 
     def cadastrarSala(self):
         self.setSala(Sala().cadastrarSala())

@@ -8,17 +8,13 @@ class Endereco():
 
     def cadastrarEndereco(self):  
         rua = str(input("Digite o nome da rua: \n"))
-        if rua:
-            Endereco.setRua(self, rua)
+        Endereco.setRua(self, rua)
         bairro = str(input("Digite o nome do bairro: \n"))
-        if bairro: 
-            Endereco.setBairro(self, bairro)
+        Endereco.setBairro(self, bairro)
         numero = int(input("Digite o número: \n"))
-        if numero:
-            Endereco.setNumero(self, numero)
+        Endereco.setNumero(self, numero)
         cidade = str(input("Digite o nome da cidade: \n"))
-        if cidade:
-            Endereco.setCidade(self, cidade)
+        Endereco.setCidade(self, cidade)
         print("cadastro do endereço concluido")
         return self
     

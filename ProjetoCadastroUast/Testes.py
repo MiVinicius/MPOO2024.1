@@ -48,14 +48,12 @@ def testesProfessor():
     print("===========================" * 6)
     professor1 = Professor()
     professor1.setNome("luiz")
-    professor1.setCpf("12345678910")
 
     endereco2 = Endereco()
     endereco2.setRua("rua 3")
     endereco2.setBairro("caxixola")
     endereco2.setNumero(9)
     endereco2.setCidade("serra talhada")
-    professor1.setEndereco(endereco2)
 
     curso2 = Curso()
     curso2.setNome("letras")
@@ -71,24 +69,43 @@ def testesProfessor():
     professor1.getCurso().getDisciplinas() 
 
     print(professor1)
-    professor1.mostrarEndereco() 
-    print(professor1.getEndereco())
     print(professor1.getNome())
-    print(professor1.getCpf())
     print(professor1.getCurso())
     print(professor1.getDisciplina())
     print(professor1.getCurso().getDisciplinas()) 
     print("===========================" * 6)
 
-testesAluno()
-testesProfessor()
+def testesEndereco():
+    print("===========================" * 6)
+    endereco = Endereco()
+    endereco.setRua("Rua calango")
+    endereco.setBairro("Bairro calango")
+    endereco.setNumero(00)
+    endereco.setCidade("Cidade calango")
+    endereco.mostrarEndereco()
+
+    print("===========================" * 6)
+
+def testesDisciplina():
+    print("===========================" * 6)
+    disciplina3 = Disciplina()
+    disciplina3.cadastrarDisciplina()
+
+    print("===========================" * 6)
+    
+def testesSala():
+    pass
 
 
-# endereco = Endereco()
-# endereco.setRua("Rua calango")
-# endereco.setBairro("Bairro calango")
-# endereco.setNumero(00)
-# endereco.setCidade("Cidade calango")
-# endereco.mostrarEndereco()
+
+def testesCursos():
+    pass
+
+
+# testesAluno()
+# testesProfessor()
+
+
+
 
 

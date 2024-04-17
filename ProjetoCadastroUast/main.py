@@ -1,5 +1,3 @@
-from Aluno import Aluno
-from Professor import Professor
 from Testes import testesAluno, testesProfessor
 import os
 
@@ -8,24 +6,9 @@ clear = lambda: os.system('cls')  # vai limpar a tela do terminal
 def menu():
     while True:
         clear()
-        print('''   
-   ####     ##     #####      ##      #####   ######   ######    #####            #####    #######             ##     ####     ##   ##  ##   ##   #####    #####
-  ##  ##   ####     ## ##    ####    ##   ##  # ## #    ##  ##  ##   ##            ## ##    ##   #            ####     ##      ##   ##  ###  ##  ##   ##  ##   ##
- ##       ##  ##    ##  ##  ##  ##   #          ##      ##  ##  ##   ##            ##  ##   ## #             ##  ##    ##      ##   ##  #### ##  ##   ##  #
- ##       ##  ##    ##  ##  ##  ##    #####     ##      #####   ##   ##            ##  ##   ####             ##  ##    ##      ##   ##  ## ####  ##   ##   #####
- ##       ######    ##  ##  ######        ##    ##      ## ##   ##   ##            ##  ##   ## #             ######    ##   #  ##   ##  ##  ###  ##   ##       ##
-  ##  ##  ##  ##    ## ##   ##  ##   ##   ##    ##      ##  ##  ##   ##            ## ##    ##   #           ##  ##    ##  ##  ##   ##  ##   ##  ##   ##  ##   ##
-   ####   ##  ##   #####    ##  ##    #####    ####    #### ##   #####            #####    #######           ##  ##   #######   #####   ##   ##   #####    #####
-
-             ''')
         print("===========================" * 6)
-        print("Só cadastro mesmo!")
-        print("Muitas funções criadas não implementadas no menu!")
-        print("===========================" * 6)
-        print("1 - cadastrar aluno - requer cadastro do endereço, curso e disciplina e sala")
-        print("2 - cadastrar professor - requer cadastro do endereço, curso e disciplina e sala")
-        print("3 - Rodar testes")
-        print("4 - sair")
+        print("1 - Rodar testes")
+        print("2 - sair")
         print("===========================" * 6)
 
         opcoes = str(input("o que deseja fazer? "))
@@ -33,23 +16,12 @@ def menu():
         match opcoes:
             case "1":
                 clear()
-                Aluno().cadastrarAluno()
-                input("pressione enter para continuar...")
-            case "2":
-                clear()
-                Professor().cadastrarProfessor()
-                input("pressione enter para continuar...")
-            case "3":
-                clear()
                 testesAluno()
                 testesProfessor()
                 input("pressione enter para continuar...")
-            case "4":
+            case "2":
                 clear()
                 break
 
 class main():
     menu()
-    
-if __name__ == '__main__':
-    main() 

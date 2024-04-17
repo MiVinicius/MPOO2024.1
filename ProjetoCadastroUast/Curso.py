@@ -8,13 +8,9 @@ class Curso():
         
     def cadastrarCurso(self):
         nome = str(input("Digite o nome do curso: \n"))
-        if nome:
-            self.setNome(nome)
-            print("Curso cadastrado com sucesso!")
-            # self.cadastrarDisciplina() # ai é regra de negócio
-            return self
-        print("curso não cadastrado!")
-        return None
+        self.setNome(nome)
+        print("Curso cadastrado com sucesso!")
+        return self
     
     def cadastrarDisciplina(self):
         self.setDisciplina(Disciplina().cadastrarDisciplina())
