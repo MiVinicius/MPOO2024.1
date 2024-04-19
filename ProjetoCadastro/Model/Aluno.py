@@ -1,9 +1,12 @@
 
 class Aluno():
     
-    def __init__(self, nome, matricula) -> None:
+    __nMatricula = 0 
+    
+    def __init__(self, nome) -> None:
         self.__nome = nome
-        self.__matricula = matricula
+        self.__nMatricula += 1
+        self.__matricula = self.__nMatricula
         self.__endereco = None
         self.__curso = None
         self.__disciplinas = []
@@ -36,7 +39,7 @@ class Aluno():
         return self.__curso
     
     def _setDisciplina(self, disciplina):
-        self.__disciplinas.extend(disciplina)
+        self.__disciplinas.append(disciplina)
         
     def _getDisciplina(self):
         return self.__disciplinas

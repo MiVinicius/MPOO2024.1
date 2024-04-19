@@ -1,10 +1,10 @@
-import Servidor
+from Servidor import Servidor
 
 
 class Professor(Servidor):
     
     def __init__(self, nome, cpf) -> None:
-        super().__init__(self, nome, cpf)
+        super().__init__(nome, cpf)
         self.__endereco = None
         self.__curso  = None
         self.__disciplinas = []

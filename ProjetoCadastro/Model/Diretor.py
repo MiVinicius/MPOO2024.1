@@ -1,9 +1,9 @@
-import Servidor
+from Servidor import Servidor
 
 class Diretor(Servidor):
     
     def __init__(self, nome, cpf, universidade):
-        super().__init__(self, nome, cpf)
+        super().__init__(nome, cpf)
         self.__universidade = universidade
         self.__endereco = None
         

@@ -1,9 +1,9 @@
-import Professor
+from Professor import Professor
 
 class Coordenador(Professor):
     
     def __init__(self, nome, cpf, coordena):
-        super().__init__(self, nome, cpf)
+        super().__init__(nome, cpf)
         self.__curso = None
         self.__coordena = coordena
         self.__endereco = None
