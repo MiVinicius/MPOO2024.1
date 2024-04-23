@@ -19,15 +19,15 @@ class BaseDados():
     salas :list = []
     
     def inicializarBase(self):
-        aluno = Aluno("Misael", "999")
-        self.cadastrarPessoa(aluno)
-        professor = Professor("Julian", "124.735.846-72")
-        self.cadastrarPessoa(professor)
-        coordenador = Coordenador("Gean", "034.346.786-74")
-        self.cadastrarPessoa(coordenador)
-        diretor = Diretor("Kauan", "405.695.954-60")
-        self.cadastrarPessoa(diretor)
-    
+        # aluno = Aluno("Misael", "999")
+        # self.cadastrarPessoa(aluno)
+        # professor = Professor("Julian", "124.735.846-72")
+        # self.cadastrarPessoa(professor)
+        # coordenador = Coordenador("Gean", "034.346.786-74")
+        # self.cadastrarPessoa(coordenador)
+        # diretor = Diretor("Mauro", "405.695.954-60")
+        # self.cadastrarPessoa(diretor)
+        pass
     def cadastrarAluno(self):
         try:  # ta certo isso?
             aluno = Aluno((str(input("Digite o nome do Aluno: \n"))), int(input("Digite o Cpf: \n")))
@@ -40,7 +40,6 @@ class BaseDados():
             self.cadastrarAluno()
         finally:
             print("agora deu ruim mesmo!")
-            self.cadastrarAluno() # não tem pra onde correr
     
     def cadastrarServidor(self):
         servidor = Servidor((str(input("Digite o nome do Servidor: \n"))), str(input("Digite o cpf: \n")))
@@ -58,30 +57,35 @@ class BaseDados():
         diretor = Diretor(str(input("Digite o nome do Diretor: \n")), str(input("Digite o cpf: \n")))
         self.cadastrarDiretor(diretor)
     
-    def cadastrarPessoa(self, pessoa: object):  # deve ter alguma forma de reduzir isso aqui...
+    def cadastrarPessoa(self, pessoa): 
         if isinstance(pessoa, Aluno):
             if pessoa not in BaseDados.alunos:
                 BaseDados.alunos.append(pessoa)
+                return True
             else:
                 return False
         if isinstance(pessoa, Servidor):
             if pessoa not in BaseDados.servidores:
                 BaseDados.servidores.append(pessoa)
+                return True
             else:
                 return False
         if isinstance(pessoa, Professor):
             if pessoa not in BaseDados.servidores:
                 BaseDados.servidores.append(pessoa)
+                return True
             else:
                 return False
         if isinstance(pessoa, Coordenador):
             if pessoa not in BaseDados.servidores:
                 BaseDados.servidores.append(pessoa)
+                return True
             else:
                 return False
         if isinstance(pessoa, Diretor):
             if pessoa not in BaseDados.servidores:
                 BaseDados.servidores.append(pessoa)
+                return True
             else:
                 return False
     
@@ -94,13 +98,9 @@ class BaseDados():
     def passarCurso(self, Curso, pessoa):
         if isinstance(pessoa, Aluno):
             pessoa._setCurso(Curso)
-        if isinstance(pessoa, Servidor):
-            pessoa._setCurso(Curso)
         if isinstance(pessoa, Professor):
             pessoa._setCurso(Curso)
         if isinstance(pessoa, Coordenador):
-            pessoa._setCurso(Curso)
-        if isinstance(pessoa, Diretor):
             pessoa._setCurso(Curso)
         return True
         
@@ -112,13 +112,9 @@ class BaseDados():
     def passarDisciplina(self, Disciplina, pessoa):
         if isinstance(pessoa, Aluno):
             pessoa._setDisciplina(Disciplina)
-        if isinstance(pessoa, Servidor):
-            pessoa._setDisciplina(Disciplina)
         if isinstance(pessoa, Professor):
             pessoa._setDisciplina(Disciplina)
         if isinstance(pessoa, Coordenador):
-            pessoa._setDisciplina(Disciplina)
-        if isinstance(pessoa, Diretor):
             pessoa._setDisciplina(Disciplina)
         return True
     
@@ -147,6 +143,10 @@ class BaseDados():
                             int(input("Digite o número: \n")),
                             str(input("Digite o nome da cidade: \n")),
         )
+        
+        return self.passarEndereco(endereco, pessoa)
+        
+    def passarEndereco(self, endereco, pessoa):
         if isinstance(pessoa, Aluno):
             pessoa._setEndereco(endereco)
         if isinstance(pessoa, Servidor):
@@ -158,7 +158,7 @@ class BaseDados():
         if isinstance(pessoa, Diretor):
             pessoa._setEndereco(endereco)
         return True
-        
+    
     def atualizarEndereco(self, pessoa):  
         pessoa._setEndereco(self.cadastrarEndereco())
 
@@ -170,17 +170,27 @@ class BaseDados():
         if tipo == 1:
             return self.buscarServidor(Servidor(id_pessoa, None))
     
+    
+    def buscarPessoaExiste(self, id_pessoa):  # é pra verificar se existe
+        for pessoa in BaseDados.alunos:
+            if pessoa._getNome() == id_pessoa:
+                return True
+        for pessoa in BaseDados.servidores:
+            if pessoa._getNome() == id_pessoa:
+                return True
+        return False
+    
     def buscarAluno(self, aluno_procurado):
         for aluno_atual in BaseDados.alunos:
             if aluno_atual._getNome() == aluno_procurado._getNome():  # ta certo isso?
-                return aluno_atual, print("deu bom") 
-        return None, print("deu ruim")
+                return aluno_atual
+        return None
     
     def buscarServidor(self, servidor_procurado):
         for servidor_atual in BaseDados.servidores:
             if  servidor_atual._getNome()==servidor_procurado._getNome():
-                return servidor_atual, print("deu bom")
-        return None, print("deu ruim")
+                return servidor_atual
+        return None
                 
     def deletarBase(self):      
         BaseDados.alunos.clear()

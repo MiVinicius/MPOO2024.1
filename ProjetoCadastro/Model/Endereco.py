@@ -8,7 +8,7 @@ class Endereco():
         self.__estado = estado
     
     def _mostrarDados(self):
-        print(repr)
+        print(self.__repr__())
     
     def _getRua(self):
         return self.__rua
@@ -41,5 +41,5 @@ class Endereco():
         self.__estado = estado
         
     def __repr__(self) -> str:
-        f"Rua: {self.__rua}, Bairro: {self.__bairro}, Número: {self.__numero}, Cidade: {self.__cidade}, Estado: {self.__estado}"
+        return f"Rua: {self.__rua}, Bairro: {self.__bairro}, Número: {self.__numero}, Cidade: {self.__cidade}, Estado: {self.__estado}"
         

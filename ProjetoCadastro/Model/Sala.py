@@ -6,7 +6,7 @@ class Sala():
         self.__bloco = bloco
         
     def _mostrarDados(self):
-        print(repr)
+        print(self.__repr__())
         
     def _setSalaNumero(self, salaNum):
         self.__numero = salaNum

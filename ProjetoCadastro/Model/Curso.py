@@ -7,7 +7,7 @@ class Curso():
         self.__disciplinas = [] 
         
     def _mostrarDados(self):
-        print(repr)
+        return print(self.__repr__())
         
     def _setNome(self, nome):
         self.__nome = nome
@@ -16,7 +16,7 @@ class Curso():
         return self.__nome
     
     def _setDisciplinas(self, disciplina):
-        self.__disciplinas.extend(disciplina)
+        self.__disciplinas.append(disciplina)
 
     def _getDisciplinas(self):
         return self.__disciplinas
@@ -28,4 +28,4 @@ class Curso():
         return self.__periodo
     
     def __repr__(self) -> str:
-        return f"curso(s): {self.__nome}"
+        return f"curso(s): {self.__nome}, Período: {self.__periodo}"

@@ -8,7 +8,7 @@ class Diretor(Coordenador):
         self.__endereco = None
         
     def _mostrarDados(self):
-        print(repr)
+        return print(self.__repr__())
         
     def _getNome(self):
         return self.__nome
@@ -35,4 +35,4 @@ class Diretor(Coordenador):
         self.__endereco = endereco
         
     def __repr__(self):
-        f"Nome: {self.__nome}, Cpf: {self.__cpf}, Endereço: {self.__endereco}, Diretor da Universidade: {self.__universidade}"
+        return f"Nome: {self.__nome}, Cpf: {self.__cpf}, Endereço: {self.__endereco}, Diretor da Universidade: {self.__universidade}"

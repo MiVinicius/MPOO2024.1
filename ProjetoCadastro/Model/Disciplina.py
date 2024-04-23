@@ -6,7 +6,7 @@ class Disciplina():
         self.__sala = sala
         
     def _mostrarDados(self):
-        print(repr)
+        return print(self.__repr__())
     
     def _setNome(self, disciplina):
         self.__nome = disciplina

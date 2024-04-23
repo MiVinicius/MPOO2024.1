@@ -10,7 +10,7 @@ class Professor(Servidor):
         self.__disciplinas = []
     
     def _mostrarDados(self):
-        print(repr)
+        return print(self.__repr__())
 
     def _getNome(self):
         return self.__nome
@@ -40,8 +40,8 @@ class Professor(Servidor):
         return self.__disciplinas
     
     def _setDisciplina(self, disciplina):
-        self.__disciplinas.extend(disciplina)
+        self.__disciplinas.append(disciplina)
         
     def __repr__(self) -> str:
-        f"Nome: {self.__nome}, Cpf: {self.__cpf}, Endereço: {self.__endereco}, Curso: {self.__curso}, Disciplinas: {self.__disciplinas}"
+        return f"Nome: {self.__nome}, Cpf: {self.__cpf}, Endereço: {self.__endereco}, Curso: {self.__curso}, Disciplinas: {self.__disciplinas}"
     

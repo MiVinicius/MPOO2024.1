@@ -7,7 +7,7 @@ class Servidor():
         self.__endereco = None
     
     def _mostrarDados(self):
-        print(repr)
+        return print(self.__repr__())
         
     def _getNome(self):
         return self.__nome
@@ -28,4 +28,4 @@ class Servidor():
         self.__endereco = endereco
     
     def __repr__(self) -> str:
-        f"Nome: {self.__nome}, Cpf: {self.__cpf}, Endereço: {self.__endereco}"
+        return f"Nome: {self.__nome}, Cpf: {self.__cpf}, Endereço: {self.__endereco}"

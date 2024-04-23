@@ -13,7 +13,7 @@ class Aluno():
         self.__disciplinas = []
         
     def _mostrarDados(self):
-        print(repr)
+        return print(self.__repr__())
     
     def _setNome(self, nome):
         self.__nome = nome
@@ -52,5 +52,5 @@ class Aluno():
         return self.__disciplinas
     
     def __repr__(self) -> str:
-        f"Nome: {self.__nome}, CPF: {self.__cpf}, Matricula: {self.__matricula}, Endereço: {self.__endereco}, Curso: {self.__curso}, Disciplinas: {self.__disciplinas}"
+        return f"Nome: {self.__nome}, CPF: {self.__cpf}, Matricula: {self.__matricula}, Endereço: {self.__endereco}, Curso: {self.__curso}, Disciplinas: {self.__disciplinas}"
     
