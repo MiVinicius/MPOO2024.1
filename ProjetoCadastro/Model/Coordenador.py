@@ -2,7 +2,7 @@ from Professor import Professor
 
 class Coordenador(Professor):
     
-    def __init__(self, nome, cpf, coordena):
+    def __init__(self, nome, cpf, coordena=None):
         super().__init__(nome, cpf)
         self.__curso = None
         self.__coordena = coordena

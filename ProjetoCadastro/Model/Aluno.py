@@ -3,8 +3,9 @@ class Aluno():
     
     __nMatricula = 0 
     
-    def __init__(self, nome) -> None:
+    def __init__(self, nome, cpf) -> None:
         self.__nome = nome
+        self.__cpf = cpf
         self.__nMatricula += 1
         self.__matricula = self.__nMatricula
         self.__endereco = None
@@ -19,6 +20,12 @@ class Aluno():
         
     def _getNome(self):
         return self.__nome
+    
+    def _setCpf(self, cpf):
+        self.__cpf = cpf
+        
+    def _getCpf(self):
+        return self.__cpf
     
     def _setMatricula(self, matricula):
         self.__matricula = matricula 
@@ -45,5 +52,5 @@ class Aluno():
         return self.__disciplinas
     
     def __repr__(self) -> str:
-        f"Nome: {self.__nome}, Matricula: {self.__matricula}, Endereço: {self.__endereco}, Curso: {self.__curso}, Disciplinas: {self.__disciplinas}"
+        f"Nome: {self.__nome}, CPF: {self.__cpf}, Matricula: {self.__matricula}, Endereço: {self.__endereco}, Curso: {self.__curso}, Disciplinas: {self.__disciplinas}"
     

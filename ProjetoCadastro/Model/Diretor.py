@@ -1,8 +1,8 @@
-from Servidor import Servidor
+from Coordenador import Coordenador
 
-class Diretor(Servidor):
+class Diretor(Coordenador):
     
-    def __init__(self, nome, cpf, universidade):
+    def __init__(self, nome, cpf, universidade=None):
         super().__init__(nome, cpf)
         self.__universidade = universidade
         self.__endereco = None

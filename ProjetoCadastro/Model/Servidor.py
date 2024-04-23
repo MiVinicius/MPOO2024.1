@@ -1,5 +1,6 @@
 
 class Servidor():
+    
     def __init__(self, nome, cpf) -> None:
         self.__nome = nome
         self.__cpf = cpf
