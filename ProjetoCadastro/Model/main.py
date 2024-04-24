@@ -2,8 +2,8 @@
 from BaseDados import BaseDados
 from Aluno import Aluno
 from Professor import Professor
-from Coordenador import Coordenador
-from Diretor import Diretor
+# from Coordenador import Coordenador
+# from Diretor import Diretor
 from Servidor import Servidor
 # from Endereco import Endereco
 # from Disciplina import Disciplina
@@ -15,40 +15,39 @@ Projeto de melhora continua
 
 def Menu():
     
-    # iniciar bateria de testes!
+    # iniciar bateria de testes! cadastros dentro da base de dados
     baseDados = BaseDados()
     baseDados.inicializarBase()
     # baseDados.cadastrarAluno()
     
     
-    # testes de cadastro
+    # testes de cadastro pra saber se dá erro (erro != nada no terminal)
     baseDados.cadastrarPessoa(Aluno("Carlos", "445.465.465.04"))
     baseDados.cadastrarPessoa(Aluno("Carlos", "445.465.465.04"))
     baseDados.cadastrarPessoa(Servidor("Geronimo", "627.628.635-98"))
-    baseDados.cadastrarPessoa(Professor("João", "164.646.756-79"))  
-    baseDados.cadastrarPessoa(Coordenador("Jose", "956.393.347.32"))
-    baseDados.cadastrarPessoa(Diretor("Leonardo", "555.555.555-55")) 
+    baseDados.cadastrarPessoa(Servidor("Geronimo", "627.628.635-98"))
+    baseDados.cadastrarPessoa(Professor("João", "164.646.756-79"))
+    baseDados.cadastrarPessoa(Professor("João", "164.646.756-79"))
+    
+    # passando por problema, por favor espere
+    # baseDados.cadastrarPessoa(Coordenador("Jose", "956.393.347.32"))
+    # baseDados.cadastrarPessoa(Coordenador("Jose", "956.393.347.32"))
+    # baseDados.cadastrarPessoa(Diretor("Leonardo", "555.555.555-55"))
+    # baseDados.cadastrarPessoa(Diretor("Leonardo", "555.555.555-55"))
     
     
-    # testes de busca
+    
+    # testes de busca, funciona
+    # print(baseDados.buscarPessoaExiste("Carlos"))
     # print(baseDados.buscarPessoaExiste("Geronimo"))
     # print(baseDados.buscarPessoaExiste("João"))
     # print(baseDados.buscarPessoaExiste("Leonardo"))
-    # print(baseDados.buscarPessoaExiste("Carlos"))
     # print(baseDados.buscarPessoaExiste("Jose"))
     
     
     
-    # baseDados.buscarAluno(Aluno("Misael", "999"))
-    # baseDados.buscarPessoa()
-    # baseDados.cadastrarPessoa()
-    # baseDados.cadastrarAluno()
-    # baseDados.inicializarBase()
-    
-    
     # aluno = Aluno("Misael", "999")
     # baseDados.cadastrarPessoa(aluno)
-    # b = baseDados.buscarAluno(aluno)
     # aluno._mostrarDados()
     # print(aluno)
     # print(aluno._getNome())
@@ -57,17 +56,20 @@ def Menu():
     # servidor._mostrarDados()
     # print(servidor)
     # professor = Professor("Julian", "124.735.846-72")
-    # print(baseDados.cadastrarPessoa(professor))
+    # baseDados.cadastrarPessoa(professor)
     
-    # coordenador = Coordenador("Gean", "034.346.786-74")
-    # print(baseDados.cadastrarPessoa(coordenador))
+    # coordenador = Coordenador("Túlio", "034.346.786-04")
+    # baseDados.cadastrarPessoa(coordenador)
     
-    # diretor = Diretor("Mauro", "405.695.954-60")
-    # print(baseDados.cadastrarPessoa(diretor))
+    # diretor = Diretor("Mauricio", "405.695.954-60")
+    # baseDados.cadastrarPessoa(diretor)
     
+    
+    # testes endereco
     # endereco = Endereco("Rua calango", "Bairro calango", 00, "Cidade calango", "Estado Calango")
     # endereco._mostrarDados()
     # baseDados.passarEndereco(endereco, aluno)
+    # aluno._mostrarDados()
     
     
     

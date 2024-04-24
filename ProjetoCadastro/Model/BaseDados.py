@@ -19,15 +19,15 @@ class BaseDados():
     salas :list = []
     
     def inicializarBase(self):
-        # aluno = Aluno("Misael", "999.999.999-99")
-        # self.cadastrarPessoa(aluno)
-        # professor = Professor("Julian", "124.735.846-72")
-        # self.cadastrarPessoa(professor)
-        # coordenador = Coordenador("Gean", "034.346.786-74")
-        # self.cadastrarPessoa(coordenador)
-        # diretor = Diretor("Mauro", "405.695.954-60")
-        # self.cadastrarPessoa(diretor)
-        pass
+        aluno = Aluno("Misael", "999.999.999-99")
+        self.cadastrarPessoa(aluno)
+        professor = Professor("Juliano", "124.735.846-73")
+        self.cadastrarPessoa(professor)
+        coordenador = Coordenador("Gean", "034.346.786-74")
+        self.cadastrarPessoa(coordenador)
+        diretor = Diretor("Mauro", "405.695.954-60")
+        self.cadastrarPessoa(diretor)
+        
     
     def cadastrarAluno(self):
         try:  # ta certo isso?
@@ -189,7 +189,7 @@ class BaseDados():
     
     def buscarPessoaExiste(self, id_pessoa):    # é pra verificar se existe, não funciona se tiver os getters e setters herdados sobrescritos
                                                 # (provavelmente por conta do encapsulamento ou por falta de conhecimento meu)
-                                                # alguém me ajuda nisso!
+                                                # alguém me ajuda nisso! (Atualização parece que funciona)
         for aluno in BaseDados.alunos:
             if aluno._getNome() == id_pessoa:   # ta certo isso?
                 return True
@@ -213,6 +213,7 @@ class BaseDados():
     def deletarBase(self):      # manda a base para as cucuias
         BaseDados.alunos.clear()
         BaseDados.servidores.clear()
+        print("Base Deletada com Sucesso!")
     
     
     # cenas dos próximos capítulos...

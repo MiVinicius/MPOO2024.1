@@ -12,17 +12,17 @@ class Professor(Servidor):
     def _mostrarDados(self):
         return print(self.__repr__())
 
-    # def _getNome(self):
-    #     return self.__nome
+    def _getNome(self):
+        return super()._getNome()
     
-    # def _setNome(self, nome):
-    #     self.__nome = nome
+    def _setNome(self, nome):
+        super()._setNome(nome)
     
-    # def _getCpf(self):
-    #     return self.__cpf
+    def _getCpf(self):
+        return super()._getCpf()
     
-    # def _setCpf(self, cpf):
-    #     self.__cpf = cpf
+    def _setCpf(self, cpf):
+        super()._setCpf(cpf)
     
     def _getEndereco(self):
         return self.__endereco
@@ -44,7 +44,7 @@ class Professor(Servidor):
         
     def __eq__(self, other):
         if isinstance(other, Professor):
-            return self.__nome == other.__nome and self.__cpf == other.__cpf
+            return super().__eq__(other) and self._getNome() == other._getNome() and self._getCpf() == other._getCpf()  # isso é o suprassumo do conhecimento!
         return False
         
     def __repr__(self) -> str:
