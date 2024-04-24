@@ -26,6 +26,11 @@ class Servidor():
     
     def _setEndereco(self, endereco):
         self.__endereco = endereco
+        
+    def __eq__(self, other):
+        if isinstance(other, Servidor):
+            return self.__nome == other.__nome and self.__cpf == other.__cpf
+        return False
     
     def __repr__(self) -> str:
         return f"Nome: {self.__nome}, Cpf: {self.__cpf}, Endereço: {self.__endereco}"

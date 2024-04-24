@@ -51,6 +51,11 @@ class Aluno():
     def _getDisciplina(self):
         return self.__disciplinas
     
+    def __eq__(self, other):
+        if isinstance(other, Aluno):
+            return self.__nome == other.__nome and self.__cpf == other.__cpf
+        return False
+    
     def __repr__(self) -> str:
         return f"Nome: {self.__nome}, CPF: {self.__cpf}, Matricula: {self.__matricula}, Endereço: {self.__endereco}, Curso: {self.__curso}, Disciplinas: {self.__disciplinas}"
     
