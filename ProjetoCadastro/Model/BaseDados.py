@@ -32,7 +32,11 @@ class BaseDados():
     def cadastrarAluno(self):
         try:  # ta certo isso?
             aluno = Aluno((str(input("Digite o nome do Aluno: \n"))), int(input("Digite o Cpf: \n")))
-            self.cadastrarPessoa(aluno)
+            if self.cadastrarPessoa(aluno):
+                print("Aluno Cadastrado com sucesso!")
+                return True
+            print("Aluno ja existe!")
+            return False
         except TypeError:
             print("Erro de tipo de input de dado!")
             self.cadastrarAluno()
@@ -42,51 +46,67 @@ class BaseDados():
     
     def cadastrarServidor(self):
         servidor = Servidor((str(input("Digite o nome do Servidor: \n"))), str(input("Digite o cpf: \n")))
-        self.cadastrarServidor(servidor)
+        if self.cadastrarPessoa(servidor):
+            print("Servidor Cadastrado com sucesso!")
+            return True
+        print("Servidor ja existe!")
+        return False
     
     def cadastrarProfessor(self):
         professor = Professor(str(input("Digite o nome do Professor: \n")), str(input("Digite o cpf: \n")))
-        self.cadastrarProfessor(professor)
-        
+        if self.cadastrarPessoa(professor):
+            print("Professor Cadastrado com sucesso!")
+            return True
+        print("Professor ja existe!")
+        return False
+    
     def cadastrarCoordenador(self):
         coordenador = Coordenador(str(input("Digite o nome do Coordenador: \n")), str(input("Digite o cpf: \n")))
-        self.cadastrarCoordenador(coordenador)
+        if self.cadastrarPessoa(coordenador):
+            print("Coordenador Cadastrado com sucesso!")
+            return True
+        print("Coordenador ja existe!")
+        return False
     
     def cadastrarDiretor(self):
         diretor = Diretor(str(input("Digite o nome do Diretor: \n")), str(input("Digite o cpf: \n")))
-        self.cadastrarDiretor(diretor)
+        if self.cadastrarPessoa(diretor):  
+            print("Diretor Cadastrado com sucesso!")
+            return True
+        print("Diretor ja existe!")
+        return False
     
     def cadastrarPessoa(self, pessoa): 
         if isinstance(pessoa, Aluno):
-            if pessoa not in BaseDados.alunos:  # eu vou colocar o buscarPessoaExiste aqui
+            if pessoa not in BaseDados.alunos:  # eu iria colocar o buscarPessoaExiste aqui...
                 BaseDados.alunos.append(pessoa)
-                return True, print("Aluno Cadastrado com sucesso!")
+                return True
             else:
-                return False, print("Aluno ja existe!")
+                return False
         if isinstance(pessoa, Diretor):
             if pessoa not in BaseDados.servidores:
                 BaseDados.servidores.append(pessoa)
-                return True, print("Diretor Cadastrado com sucesso!")
+                return True
             else:
-                return False, print("Diretor ja existe!")
+                return False
         if isinstance(pessoa, Coordenador):
             if pessoa not in BaseDados.servidores:
                 BaseDados.servidores.append(pessoa)
-                return True, print("Coordenador Cadastrado com sucesso!")
+                return True
             else:
-                return False, print("Coordenador ja existe!")
+                return False
         if isinstance(pessoa, Professor):
             if pessoa not in BaseDados.servidores:
                 BaseDados.servidores.append(pessoa)
-                return True, print("Professor Cadastrado com sucesso!")
+                return True
             else:
-                return False, print("Professor ja existe!")
+                return False
         if isinstance(pessoa, Servidor):
             if pessoa not in BaseDados.servidores:
                 BaseDados.servidores.append(pessoa)
-                return True, print("Servidor Cadastrado com sucesso!")
+                return True
             else:
-                return False, print("Servidor ja existe!")
+                return False
         return False
     
     def cadastrarCurso(self):

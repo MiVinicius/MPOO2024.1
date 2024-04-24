@@ -18,10 +18,12 @@ def Menu():
     # iniciar bateria de testes!
     baseDados = BaseDados()
     baseDados.inicializarBase()
+    # baseDados.cadastrarAluno()
+    
     
     # testes de cadastro
     baseDados.cadastrarPessoa(Aluno("Carlos", "445.465.465.04"))
-    # baseDados.cadastrarPessoa(Aluno("Carlos", "445.465.465.04"))
+    baseDados.cadastrarPessoa(Aluno("Carlos", "445.465.465.04"))
     baseDados.cadastrarPessoa(Servidor("Geronimo", "627.628.635-98"))
     baseDados.cadastrarPessoa(Professor("João", "164.646.756-79"))  
     baseDados.cadastrarPessoa(Coordenador("Jose", "956.393.347.32"))
@@ -29,11 +31,11 @@ def Menu():
     
     
     # testes de busca
-    print(baseDados.buscarPessoaExiste("Geronimo"))
-    print(baseDados.buscarPessoaExiste("João"))
-    print(baseDados.buscarPessoaExiste("Leonardo"))
-    print(baseDados.buscarPessoaExiste("Carlos"))
-    print(baseDados.buscarPessoaExiste("Jose"))
+    # print(baseDados.buscarPessoaExiste("Geronimo"))
+    # print(baseDados.buscarPessoaExiste("João"))
+    # print(baseDados.buscarPessoaExiste("Leonardo"))
+    # print(baseDados.buscarPessoaExiste("Carlos"))
+    # print(baseDados.buscarPessoaExiste("Jose"))
     
     
     
