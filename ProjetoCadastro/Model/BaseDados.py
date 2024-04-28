@@ -1,268 +1,185 @@
 
-from Aluno import Aluno
-from Professor import Professor
-from Coordenador import Coordenador
-from Diretor import Diretor
-from Servidor import Servidor
-from Endereco import Endereco
-from Disciplina import Disciplina
-from Sala import Sala
-from Curso import Curso
+# from Aluno import Aluno
+# from Professor import Professor
+# from Coordenador import Coordenador
+# from Diretor import Diretor
 
 
+# Create
 class BaseDados():
     
-    alunos :list = []
+    alunos :list = []    # no dia que isso tiver que ficar privado, esse código já era
     servidores :list = []
     cursos :list = []
     disciplinas :list = []
     salas :list = []
     
     def inicializarBase(self):
-        aluno = Aluno("Misael", "999.999.999-99")
-        self.cadastrarPessoa(aluno)
-        professor = Professor("Juliano", "124.735.846-73")
-        self.cadastrarPessoa(professor)
-        coordenador = Coordenador("Gean", "034.346.786-74")
-        self.cadastrarPessoa(coordenador)
-        diretor = Diretor("Mauro", "405.695.954-60")
-        self.cadastrarPessoa(diretor)
-        
-    
-    def cadastrarAluno(self):
-        try:  # ta certo isso?
-            aluno = Aluno((str(input("Digite o nome do Aluno: \n"))), int(input("Digite o Cpf: \n")))
-            if self.cadastrarPessoa(aluno):
-                print("Aluno Cadastrado com sucesso!")
-                return True
-            print("Aluno ja existe!")
-            return False
-        except TypeError:
-            print("Erro de tipo de input de dado!")
-            self.cadastrarAluno()
-        except ValueError:
-            print("erro de valor do input de dado")
-            self.cadastrarAluno()
-    
-    def cadastrarServidor(self):
-        servidor = Servidor((str(input("Digite o nome do Servidor: \n"))), str(input("Digite o cpf: \n")))
-        if self.cadastrarPessoa(servidor):
-            print("Servidor Cadastrado com sucesso!")
-            return True
-        print("Servidor ja existe!")
-        return False
-    
-    def cadastrarProfessor(self):
-        professor = Professor(str(input("Digite o nome do Professor: \n")), str(input("Digite o cpf: \n")))
-        if self.cadastrarPessoa(professor):
-            print("Professor Cadastrado com sucesso!")
-            return True
-        print("Professor ja existe!")
-        return False
-    
-    def cadastrarCoordenador(self):
-        coordenador = Coordenador(str(input("Digite o nome do Coordenador: \n")), str(input("Digite o cpf: \n")))
-        if self.cadastrarPessoa(coordenador):
-            print("Coordenador Cadastrado com sucesso!")
-            return True
-        print("Coordenador ja existe!")
-        return False
-    
-    def cadastrarDiretor(self):
-        diretor = Diretor(str(input("Digite o nome do Diretor: \n")), str(input("Digite o cpf: \n")))
-        if self.cadastrarPessoa(diretor):  
-            print("Diretor Cadastrado com sucesso!")
-            return True
-        print("Diretor ja existe!")
-        return False
-    
-    def cadastrarPessoa(self, pessoa): 
-        if isinstance(pessoa, Aluno):
-            if pessoa not in BaseDados.alunos:  # eu iria colocar o buscarPessoaExiste aqui...
-                BaseDados.alunos.append(pessoa)
-                return True
-            else:
-                return False
-        if isinstance(pessoa, Diretor):
-            if pessoa not in BaseDados.servidores:
-                BaseDados.servidores.append(pessoa)
-                return True
-            else:
-                return False
-        if isinstance(pessoa, Coordenador):
-            if pessoa not in BaseDados.servidores:
-                BaseDados.servidores.append(pessoa)
-                return True
-            else:
-                return False
-        if isinstance(pessoa, Professor):
-            if pessoa not in BaseDados.servidores:
-                BaseDados.servidores.append(pessoa)
-                return True
-            else:
-                return False
-        if isinstance(pessoa, Servidor):
-            if pessoa not in BaseDados.servidores:
-                BaseDados.servidores.append(pessoa)
-                return True
-            else:
-                return False
-        return False
-    
-    def cadastrarCurso(self):
-        curso = Curso(str(input("Digite o nome do curso: \n")),
-                    str(input("Digite o período do curso: \n")))
-        BaseDados.cursos.append(curso)
-        return True, print("Curso Cadastrado com sucesso!")
-    
-    def passarCurso(self, Curso, pessoa):
-        if isinstance(pessoa, Aluno):
-            pessoa._setCurso(Curso)
-        if isinstance(pessoa, Professor):
-            pessoa._setCurso(Curso)
-        if isinstance(pessoa, Coordenador):
-            pessoa._setCurso(Curso)
-        return True, print("Curso selecionado com Sucesso!")
-        
-    def cadastrarDisciplina(self):
-        disciplina = Disciplina(str(input("Digite o nome da disciplina: \n")), self.cadastrarSala())
-        BaseDados.disciplinas.append(disciplina)
-        return True, print("Disciplina Cadastrada com sucesso!")
-    
-    def passarDisciplina(self, Disciplina, pessoa):
-        if isinstance(pessoa, Aluno):
-            pessoa._setDisciplina(Disciplina)
-        if isinstance(pessoa, Professor):
-            pessoa._setDisciplina(Disciplina)
-        if isinstance(pessoa, Coordenador):
-            pessoa._setDisciplina(Disciplina)
-        return True, print("Disciplina selecionada com Sucesso!")
-    
-    def cadastrarSala(self):
-        sala = Sala(str(input("Digite o numero da sala: \n")), 
-                    str(input("Digite o bloco da sala: \n")))
-        BaseDados.salas.append(sala)
-        return self, print("Sala Cadastrada com sucesso!")
-    
-    def passarSala(self, Sala, pessoa):  # deve ter alguma forma de reduzir isso aqui...
-        if isinstance(pessoa, Aluno):
-            pessoa._setSala(Sala)
-        if isinstance(pessoa, Servidor):
-            pessoa._setSala(Sala)
-        if isinstance(pessoa, Professor):
-            pessoa._setSala(Sala)
-        if isinstance(pessoa, Coordenador):
-            pessoa._setSala(Sala)
-        if isinstance(pessoa, Diretor):
-            pessoa._setSala(Sala)
-        return True, print("Sala selecionada com Sucesso!")
-    
-    def cadastrarEndereco(self, pessoa):
-        endereco = Endereco(str(input("Digite o nome da rua: \n")),
-                            str(input("Digite o nome do bairro: \n")),
-                            int(input("Digite o número: \n")),
-                            str(input("Digite o nome da cidade: \n")))
-        return self.passarEndereco(endereco, pessoa)
-        
-    def passarEndereco(self, endereco, pessoa):  # era assim ou um monte de if seguidos
-        if isinstance(pessoa, Aluno) or isinstance(pessoa, Servidor) or isinstance(pessoa, Professor) or isinstance(pessoa, Coordenador) or isinstance(pessoa, Diretor):
-            pessoa._setEndereco(endereco)
-            print("Endereco Cadastrado com sucesso!")
-            return True
-        else:
-            print("Pessoa não reconhecida!")
-            return False
-    
-    def atualizarEndereco(self, pessoa):  
-        return self.cadastrarEndereco(pessoa)
+        # aluno = Aluno("Misael", "999.999.999-99")
+        # self.cadastrarAluno(aluno)
+        # professor = Professor("Juliano", "124.735.846-73")
+        # self.cadastrarServidor(professor)
+        # coordenador = Coordenador("Gean", "034.346.786-74")
+        # self.cadastrarServidor(coordenador)
+        # diretor = Diretor("Mauro", "405.695.954-60")
+        # self.cadastrarServidor(diretor)
+        pass
 
-    def buscarPessoa(self): 
-        id_pessoa = str(input("Digite o nome do Aluno: \n"))
-        tipo = int(input("Digite 0 se for aluno! digite 1 se for servidor!\n")) # não consegui pensar em nada melhor
-        if tipo == 0:
-            return self.buscarAluno(Aluno(id_pessoa, None))
-        if tipo == 1:
-            return self.buscarServidor(Servidor(id_pessoa, None))
-        else:
-            print("Opção invalida!")
-            return self.buscarPessoa()
+    def cadastrarAluno(self, Aluno):
+        BaseDados.alunos.append(Aluno)
+        return True
+
+    def cadastrarServidor(self, Servidor):
+        BaseDados.servidores.append(Servidor)
+        return True
     
-    def buscarPessoaExiste(self, id_pessoa):    # é pra verificar se existe, não funciona se tiver os getters e setters herdados sobrescritos
-                                                # (provavelmente por conta do encapsulamento ou por falta de conhecimento meu)
-                                                # alguém me ajuda nisso! (Atualização parece que funciona)
-        for aluno in BaseDados.alunos:
-            if aluno._getNome() == id_pessoa:   # ta certo isso?
-                return True
-        for servidor in BaseDados.servidores:
-            if servidor._getNome() == id_pessoa:    # ta certo isso?
-                return True
-        return False
+    def cadastrarProfessor(self, Professor):
+        BaseDados.servidores.append(Professor)
+        return True
+    
+    def cadastrarCoordenador(self, Coordenador):
+        BaseDados.servidores.append(Coordenador)
+        return True
+    
+    def cadastrarDiretor(self, Diretor):
+        BaseDados.servidores.append(Diretor)
+        return True
+    
+    def cadastrarCurso(self, Curso):
+        BaseDados.cursos.append(Curso)
+        return True
+    
+    def cadastrarDisciplina(self, Disciplina):
+        BaseDados.disciplinas.append(Disciplina)
+        return True
+    
+    def cadastrarSala(self, Sala):
+        BaseDados.salas.append(Sala)
+        return True
     
     def buscarAluno(self, aluno_procurado):
         for aluno_atual in BaseDados.alunos:
-            if aluno_atual._getNome() == aluno_procurado._getNome():  # ta certo isso?
-                return aluno_atual
+            if aluno_atual._getNome() == aluno_procurado._getNome():
+                if aluno_atual._getCpf() == aluno_procurado._getCpf():
+                    return aluno_atual
         return None
     
     def buscarServidor(self, servidor_procurado):
         for servidor_atual in BaseDados.servidores:
-            if  servidor_atual._getNome()==servidor_procurado._getNome():  # ta certo isso?
-                return servidor_atual
+            if  servidor_atual._getNome()==servidor_procurado._getNome():
+                if servidor_atual._getCpf() == servidor_procurado._getCpf():
+                    return servidor_atual
         return None
-                
-    def deletarBase(self):      # manda a base para as cucuias
+
+    def buscarCurso(self, id_curso):
+        for curso in BaseDados.cursos:
+            if curso._getNome() == id_curso._getNome():
+                return curso
+    
+    def buscarDisciplina(self, id_disciplina):
+        for disciplina in BaseDados.disciplinas:
+            if disciplina._getNome() == id_disciplina:
+                return disciplina
+    
+    def buscarSala(self, id_sala):
+        for sala in BaseDados.salas:
+            if sala._getNome() == id_sala._getNome():
+                if sala._getBloco() == id_sala._getBloco():
+                    return sala
+        return None
+    
+    def atualizarAluno(self, id_aluno, novos_dados):
+        for aluno in BaseDados.alunos:
+            if aluno._getNome() == id_aluno._getNome():
+                if aluno._getCpf() == id_aluno._getCpf():
+                    BaseDados.alunos.index(aluno)._setNome(novos_dados._getNome())
+                    BaseDados.alunos.index(aluno)._setCpf(novos_dados._getCpf())
+                    BaseDados.alunos.index(aluno)._setEndereco(novos_dados._getEndereco())
+                    return True
+        return False
+    
+    def atualizarServidor(self, id_pessoa, novos_dados):
+        for servidor in BaseDados.servidores:
+            if servidor._getNome() == id_pessoa._getNome():
+                if servidor._getCpf() == id_pessoa._getCpf():
+                    BaseDados.servidores.index(servidor)._setNome(novos_dados._getNome())
+                    BaseDados.servidores.index(servidor)._setCpf(novos_dados._getCpf())
+                    BaseDados.servidores.index(servidor)._setEndereco(novos_dados._getEndereco())
+                    return True
+        return False
+    
+    def atualizarCurso(self, id_curso, novos_dados):
+        for curso in BaseDados.cursos:
+            if curso._getNome() == id_curso._getNome():
+                BaseDados.cursos.index(curso)._setNome(novos_dados._getNome()) 
+                BaseDados.cursos.index(curso)._setPeriodo(novos_dados._getPeriodo())
+                BaseDados.cursos.index(curso)._setCoordenador(novos_dados._getCoordenador())
+                return True
+        return False
+    
+    def atualizarDisciplina(self, id_disciplina, novos_dados): 
+        for disciplina in BaseDados.disciplinas:
+            if disciplina._getNome() == id_disciplina._getNome():
+                BaseDados.disciplinas.index(disciplina)._setNome(novos_dados._getNome())
+                return True
+        return False
+    
+    def atualizarSala(self, id_sala, novos_dados):
+        for sala in BaseDados.salas:
+            if sala._getSalaNumero() == id_sala._getSalaNumero() and sala._getBlocoNumero() == id_sala._getBlocoNumero():
+                BaseDados.salas.index(sala)._setNome(novos_dados._getNome()), BaseDados.salas.index(sala)._setBloco(novos_dados._getBloco())
+                return True
+        return False
+    
+    def deletarAluno(self, Aluno):
+        BaseDados.alunos.remove(Aluno)
+        return True
+    
+    def deletarServidor(self, Servidor):
+        BaseDados.servidores.remove(Servidor)
+        return True
+    
+    def deletarCurso(self, Curso):
+        Curso._setDisciplinas(None) 
+        BaseDados.cursos.remove(Curso)  
+        return True
+    
+    def deletarDisciplina(self, Disciplina):
+        BaseDados.disciplinas.remove(Disciplina)
+        return True
+    
+    def deletarSala(self, Sala):
+        return BaseDados.salas.remove(Sala)
+    
+    def deletarBase(self):      
         BaseDados.alunos.clear()
         BaseDados.servidores.clear()
         print("Base Deletada com Sucesso!")
     
-    
-    # cenas dos próximos capítulos...
-
-    def buscarCurso(self, id_curso):
-        pass
-    
-    def buscarDisciplina(self, id_disciplina):
-        pass
-    
-    def buscarSala(self, id_sala):
-        pass
-    
-    def atualizarPessoa(self, id_pessoa, novos_dados):
-        pass
-    
-    def atualizarCurso(self, id_curso, novos_dados):
-        pass
-    
-    def atualizarDisciplina(self, id_disciplina, novos_dados):
-        pass
-    
-    def atualizarSala(self, id_sala, novos_dados):
-        pass
-    
-    def deletarPessoa(self, id_pessoa):
-        pass
-    
-    def deletarCurso(self, id_curso):
-        pass
-    
-    def deletarDisciplina(self, id_disciplina):
-        pass
-    
-    def deletarSala(self, id_sala):
-        pass
-    
     def listarAlunos(self):
-        pass
+        print("Lista dos alunos:")
+        for aluno in BaseDados.alunos:
+            print(aluno._getNome(), aluno._getCpf(), aluno._getMatricula(), aluno._getEndereco(), aluno._getCurso(), aluno._getDisciplina()) 
     
     def listarServidores(self):
-        pass
+        print("Lista dos servidores:")
+        for servidor in BaseDados.servidores:
+            print(servidor._getNome(), servidor._getCpf(), servidor._getEndereco(), servidor._getSala())
     
     def listarCursos(self):
-        pass
+        print("Lista dos Cursos:")
+        for curso in BaseDados.cursos:
+            print(curso.getNome(), curso.getPeriodo())
+            print(curso.getDisciplinas())
+            print(curso.getSalas())
     
     def listarDisciplinas(self):
-        pass
+        print("Lista das Disciplinas:")
+        for disciplina in BaseDados.disciplinas:
+            print(disciplina.getNome(), disciplina.getSala())
     
     def listarSalas(self):
-        pass
+        print("Lista das Salas:")
+        for sala in BaseDados.salas:
+            print(sala.getNumero(), sala.getBloco())
     

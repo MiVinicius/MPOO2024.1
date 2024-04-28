@@ -1,7 +1,7 @@
 
 class Disciplina():
     
-    def __init__(self, nome, sala) -> None:
+    def __init__(self, nome, sala= None) -> None:
         self.__nome = nome
         self.__sala = sala
         

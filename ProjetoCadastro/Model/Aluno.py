@@ -3,15 +3,19 @@ class Aluno():
     
     __nMatricula = 0 
     
-    def __init__(self, nome, cpf) -> None:
+    def __init__(self, nome, cpf, Endereco = None) -> None:
         self.__nome = nome
         self.__cpf = cpf
-        self.__nMatricula += 1
-        self.__matricula = self.__nMatricula
-        self.__endereco = None
+        self.__matricula = self.incrementar_matricula()
+        self.__endereco = Endereco
         self.__curso = None
         self.__disciplinas = []
         
+    @classmethod
+    def incrementar_matricula(cls): # assim a matricula terá um valor diferente para cada instancia
+        cls.__nMatricula += 1
+        return cls.__nMatricula
+    
     def _mostrarDados(self):
         return print(self.__repr__())
     

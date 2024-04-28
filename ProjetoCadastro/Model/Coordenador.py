@@ -1,4 +1,4 @@
-from Professor import Professor
+from ProjetoCadastro.Model.Professor import Professor
 
 class Coordenador(Professor):
     
@@ -50,7 +50,7 @@ class Coordenador(Professor):
         
     def __eq__(self, other):
         if isinstance(other, Coordenador):
-            return super().__eq__(other) and self.__nome == other.__nome and self.__cpf == other.__cpf
+            return super().__eq__(other) and self._getNome() == other._getNome() and self._getCpf() == other._getCpf()
         return False
         
     def __repr__(self) -> str:

@@ -1,4 +1,4 @@
-from Servidor import Servidor
+from ProjetoCadastro.Model.Servidor import Servidor
 
 
 class Professor(Servidor):
