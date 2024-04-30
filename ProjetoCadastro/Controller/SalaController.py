@@ -15,7 +15,12 @@ class SalaController:
     @staticmethod
     def passarSala(pessoa):
         sala = Sala(str(input("Digite o número da sala: \n")), str(input("Digite o bloco da sala: \n")))
-        return BaseDados.cadastrarSala(BaseDados.buscarSala(sala), pessoa)
+        if BaseDados.buscarSala(sala) is None:
+            print("Sala não existe")
+            return False
+        else:
+            pessoa._setSala(sala)
+            return True 
     
     @staticmethod
     def buscarSala():

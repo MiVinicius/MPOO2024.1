@@ -3,6 +3,7 @@ sys.path.append('.')
 from ProjetoCadastro.Model.Professor import Professor
 from ProjetoCadastro.Model.BaseDados import BaseDados
 from ProjetoCadastro.Model.Curso import Curso
+from ProjetoCadastro.Model.Disciplina import Disciplina
 
 class ProfessorController:
     @staticmethod
@@ -15,10 +16,24 @@ class ProfessorController:
         else:
             print("Professor ja existe!")
             return False
-    
-    def passarCurso(Professor):
+    @staticmethod
+    def passarCurso(professor: Professor):
         curso = Curso(str(input("Digite o nome do curso: \n")), str(input("Digite o período do curso: \n")))
-        return ProfessorController.buscarProfessor(Professor)._setCurso(curso)
+        if BaseDados.buscarCurso(curso) is None:
+            print("Curso não existe")
+            return False
+        else:
+            professor._setCurso(curso)
+            return True
+    
+    @staticmethod
+    def passarDisciplina(professor:Professor):
+        disciplina = Disciplina(str(input("Digite o nome da disciplina: \n")))
+        if BaseDados.buscarDisciplina(disciplina) is None:
+            print("Disciplina não existe")
+            return False
+        else:
+            professor._setDisciplina(disciplina)
     
     @staticmethod
     def buscarProfessor():

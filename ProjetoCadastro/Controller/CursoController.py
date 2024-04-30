@@ -2,6 +2,7 @@ import sys
 sys.path.append('.')
 from ProjetoCadastro.Model.Curso import Curso
 from ProjetoCadastro.Model.BaseDados import BaseDados
+from ProjetoCadastro.Model.Coordenador import Coordenador
 
 class CursoController:
     
@@ -9,17 +10,24 @@ class CursoController:
     def cadastrarCurso():
         curso = Curso(str(input("Digite o nome do curso: \n")),
                     str(input("Digite o período do curso: \n")))
-        return BaseDados.cadastrarCurso(curso)
-    
+        if BaseDados.buscarCurso() is None:
+            print("Curso cadastrado com sucesso!")
+            return BaseDados.cadastrarCurso(curso)
+        else:
+            print("Curso ja existe!")
+            return False
     @staticmethod
-    def passarCurso(pessoa):
-        curso = Curso(str(input("Digite o nome do curso: \n")), str(input("Digite o período do curso: \n")))
-        return BaseDados.passarCurso(BaseDados.buscarCurso(curso), pessoa)
-    
+    def passarCoordenador(curso:Curso):
+        coordenador = Coordenador(str(input("Digite o nome do Coordenador: \n")), str(input("Digite o cpf: \n")))
+        if BaseDados.buscarServidor(coordenador) is None:
+            print("Coordenador não existe!")
+            return False
+        else:
+            curso._setCoordenador(coordenador)
     @staticmethod
     def buscarCurso():
-        curso = str(input("Digite o nome do curso: \n"))
-        return BaseDados.buscarCurso(Curso(curso, None))
+        curso = Curso(str(input("Digite o nome do curso: \n")), str(input("Digite o período do curso: \n")))
+        return BaseDados.buscarCurso(curso)
     
     @staticmethod
     def atualizarCurso():

@@ -56,15 +56,18 @@ class BaseDados():
         BaseDados.servidores.append(Diretor)
         return True
     
-    def cadastrarCurso(self, Curso):
+    @staticmethod
+    def cadastrarCurso(Curso):
         BaseDados.cursos.append(Curso)
         return True
     
-    def cadastrarDisciplina(self, Disciplina):
+    @staticmethod
+    def cadastrarDisciplina(Disciplina):
         BaseDados.disciplinas.append(Disciplina)
         return True
     
-    def cadastrarSala(self, Sala):
+    @staticmethod
+    def cadastrarSala(Sala):
         BaseDados.salas.append(Sala)
         return True
     
@@ -84,24 +87,31 @@ class BaseDados():
                     return servidor_atual
         return None
 
-    def buscarCurso(self, id_curso):
+    @staticmethod
+    def buscarCurso(id_curso):
         for curso in BaseDados.cursos:
             if curso._getNome() == id_curso._getNome():
-                return curso
+                if curso._getPeriodo() == id_curso._getPeriodo():
+                    return curso
+        return None
     
-    def buscarDisciplina(self, id_disciplina):
+    @staticmethod
+    def buscarDisciplina(id_disciplina):
         for disciplina in BaseDados.disciplinas:
-            if disciplina._getNome() == id_disciplina:
+            if disciplina._getNome() == id_disciplina._getNome():
                 return disciplina
+        return None
     
-    def buscarSala(self, id_sala):
+    @staticmethod
+    def buscarSala(id_sala):
         for sala in BaseDados.salas:
             if sala._getNome() == id_sala._getNome():
                 if sala._getBloco() == id_sala._getBloco():
                     return sala
         return None
     
-    def atualizarAluno(self, id_aluno, novos_dados):
+    @staticmethod
+    def atualizarAluno(id_aluno, novos_dados):
         for aluno in BaseDados.alunos:
             if aluno._getNome() == id_aluno._getNome():
                 if aluno._getCpf() == id_aluno._getCpf():
@@ -111,7 +121,8 @@ class BaseDados():
                     return True
         return False
     
-    def atualizarServidor(self, id_pessoa, novos_dados):
+    @staticmethod
+    def atualizarServidor(id_pessoa, novos_dados):
         for servidor in BaseDados.servidores:
             if servidor._getNome() == id_pessoa._getNome():
                 if servidor._getCpf() == id_pessoa._getCpf():
@@ -121,7 +132,8 @@ class BaseDados():
                     return True
         return False
     
-    def atualizarCurso(self, id_curso, novos_dados):
+    @staticmethod
+    def atualizarCurso(id_curso, novos_dados):
         for curso in BaseDados.cursos:
             if curso._getNome() == id_curso._getNome():
                 BaseDados.cursos.index(curso)._setNome(novos_dados._getNome()) 
@@ -130,14 +142,16 @@ class BaseDados():
                 return True
         return False
     
-    def atualizarDisciplina(self, id_disciplina, novos_dados): 
+    @staticmethod
+    def atualizarDisciplina(id_disciplina, novos_dados): 
         for disciplina in BaseDados.disciplinas:
             if disciplina._getNome() == id_disciplina._getNome():
                 BaseDados.disciplinas.index(disciplina)._setNome(novos_dados._getNome())
                 return True
         return False
     
-    def atualizarSala(self, id_sala, novos_dados):
+    @staticmethod
+    def atualizarSala(id_sala, novos_dados):
         for sala in BaseDados.salas:
             if sala._getSalaNumero() == id_sala._getSalaNumero() and sala._getBlocoNumero() == id_sala._getBlocoNumero():
                 BaseDados.salas.index(sala)._setNome(novos_dados._getNome()), BaseDados.salas.index(sala)._setBloco(novos_dados._getBloco())
@@ -154,16 +168,19 @@ class BaseDados():
         BaseDados.servidores.remove(Servidor)
         return True
     
-    def deletarCurso(self, Curso):
+    @staticmethod
+    def deletarCurso(Curso):
         Curso._setDisciplinas(None) 
         BaseDados.cursos.remove(Curso)  
         return True
     
-    def deletarDisciplina(self, Disciplina):
+    @staticmethod
+    def deletarDisciplina(Disciplina):
         BaseDados.disciplinas.remove(Disciplina)
         return True
     
-    def deletarSala(self, Sala):
+    @staticmethod
+    def deletarSala(Sala):
         return BaseDados.salas.remove(Sala)
     
     @staticmethod

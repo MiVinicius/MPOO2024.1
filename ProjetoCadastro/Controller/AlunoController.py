@@ -5,6 +5,7 @@ from ProjetoCadastro.Model.BaseDados import BaseDados
 from ProjetoCadastro.Controller.CursoController import CursoController
 from ProjetoCadastro.Model.Curso import Curso
 from ProjetoCadastro.Controller.EnderecoController import EnderecoController
+from ProjetoCadastro.Model.Disciplina import Disciplina
 
 class AlunoController:
     
@@ -21,11 +22,19 @@ class AlunoController:
             print("Aluno já existe!")
             return False
 
-
     @staticmethod
     def passarCurso(Aluno):
         curso = CursoController.buscarCurso(Curso(str(input("Digite o nome do curso: \n")), str(input("Digite o período do curso: \n"))))
         return AlunoController.buscarAluno(Aluno)._setCurso(curso)
+    
+    @staticmethod
+    def passarDisciplina(aluno: Aluno):
+        disciplina = Disciplina(str(input("Digite o nome da disciplina: \n")))
+        if BaseDados.buscarDisciplina(disciplina) is None:
+            print("Disciplina não existe")
+            return False
+        else:
+            aluno._setDisciplina(disciplina)
             
     @staticmethod
     def buscarAluno():
