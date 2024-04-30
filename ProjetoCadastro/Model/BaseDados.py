@@ -76,7 +76,8 @@ class BaseDados():
                     return aluno_atual
         return None
     
-    def buscarServidor(self, servidor_procurado):
+    @staticmethod
+    def buscarServidor(servidor_procurado):
         for servidor_atual in BaseDados.servidores:
             if  servidor_atual._getNome()==servidor_procurado._getNome():
                 if servidor_atual._getCpf() == servidor_procurado._getCpf():
@@ -143,11 +144,13 @@ class BaseDados():
                 return True
         return False
     
-    def deletarAluno(self, Aluno):
+    @staticmethod
+    def deletarAluno(Aluno):
         BaseDados.alunos.remove(Aluno)
         return True
     
-    def deletarServidor(self, Servidor):
+    @staticmethod
+    def deletarServidor(Servidor):
         BaseDados.servidores.remove(Servidor)
         return True
     
@@ -163,7 +166,8 @@ class BaseDados():
     def deletarSala(self, Sala):
         return BaseDados.salas.remove(Sala)
     
-    def deletarBase(self):      
+    @staticmethod
+    def deletarBase():      
         BaseDados.alunos.clear()
         BaseDados.servidores.clear()
         print("Base Deletada com Sucesso!")
