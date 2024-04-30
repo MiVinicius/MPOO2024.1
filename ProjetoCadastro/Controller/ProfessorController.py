@@ -1,4 +1,5 @@
-
+import sys
+sys.path.append('.')
 from ProjetoCadastro.Model.Professor import Professor
 from ProjetoCadastro.Model.BaseDados import BaseDados
 from ProjetoCadastro.Model.Curso import Curso
@@ -9,9 +10,11 @@ class ProfessorController:
         professor = Professor(str(input("Digite o nome do Professor: \n")), str(input("Digite o cpf: \n")))
         if BaseDados.buscarServidor(professor) is None:
             print("Professor Cadastrado com sucesso!")
-            return BaseDados.cadastrarProfessor(professor)
-        print("Professor ja existe!")
-        return False
+            BaseDados.cadastrarProfessor(professor)
+            return True
+        else:
+            print("Professor ja existe!")
+            return False
     
     def passarCurso(Professor):
         curso = Curso(str(input("Digite o nome do curso: \n")), str(input("Digite o período do curso: \n")))
@@ -19,7 +22,8 @@ class ProfessorController:
     
     @staticmethod
     def buscarProfessor():
-        return BaseDados.buscarServidor(Professor(str(input("Digite o nome do Professor: \n")), str(input("Digite o cpf: \n"))))
+        professor = Professor(str(input("Digite o nome do Professor: \n")), str(input("Digite o cpf: \n")))
+        return BaseDados.buscarServidor(professor)
     
     @staticmethod
     def atualizarProfessor():

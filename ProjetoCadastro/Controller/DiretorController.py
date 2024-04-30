@@ -1,4 +1,5 @@
-
+import sys
+sys.path.append('.')
 from ProjetoCadastro.Model.Diretor import Diretor
 from ProjetoCadastro.Model.BaseDados import BaseDados
 
@@ -9,13 +10,16 @@ class DiretorController:
         diretor = Diretor(str(input("Digite o nome do Diretor: \n")), str(input("Digite o cpf: \n")))
         if BaseDados.buscarServidor(diretor):
             print("Diretor Cadastrado com sucesso!")
-            return BaseDados.cadastrarDiretor(diretor)
-        print("Diretor ja existe!")
-        return False
+            BaseDados.cadastrarDiretor(diretor)
+            return True
+        else:
+            print("Diretor ja existe!")
+            return False
     
     @staticmethod
     def buscarDiretor():
-        return BaseDados.buscarServidor(Diretor(str(input("Digite o nome do Diretor: \n")), str(input("Digite o cpf: \n"))))
+        diretor = Diretor(str(input("Digite o nome do Diretor: \n")), str(input("Digite o cpf: \n")))
+        return BaseDados.buscarServidor(diretor)
     
     @staticmethod
     def atualizarDiretor():

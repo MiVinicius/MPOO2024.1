@@ -1,7 +1,8 @@
-
-from Model.Disciplina import Disciplina
-from Model.BaseDados import BaseDados
-from Controller.SalaController import SalaController
+import sys
+sys.path.append('.')
+from ProjetoCadastro.Model.Disciplina import Disciplina
+from ProjetoCadastro.Model.BaseDados import BaseDados
+from ProjetoCadastro.Controller.SalaController import SalaController
 
 
 class DisciplinaController:

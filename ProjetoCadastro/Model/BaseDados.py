@@ -1,9 +1,13 @@
-
-# from Aluno import Aluno
-# from Professor import Professor
-# from Coordenador import Coordenador
-# from Diretor import Diretor
-
+import sys
+sys.path.append('.')
+from ProjetoCadastro.Model.Aluno import Aluno
+from ProjetoCadastro.Model.Servidor import Servidor
+from ProjetoCadastro.Model.Professor import Professor
+from ProjetoCadastro.Model.Coordenador import Coordenador
+from ProjetoCadastro.Model.Diretor import Diretor
+from ProjetoCadastro.Model.Curso import Curso
+from ProjetoCadastro.Model.Disciplina import Disciplina
+from ProjetoCadastro.Model.Sala import Sala
 
 # Create
 class BaseDados():
@@ -14,34 +18,41 @@ class BaseDados():
     disciplinas :list = []
     salas :list = []
     
-    def inicializarBase(self):
-        # aluno = Aluno("Misael", "999.999.999-99")
-        # self.cadastrarAluno(aluno)
-        # professor = Professor("Juliano", "124.735.846-73")
-        # self.cadastrarServidor(professor)
-        # coordenador = Coordenador("Gean", "034.346.786-74")
-        # self.cadastrarServidor(coordenador)
-        # diretor = Diretor("Mauro", "405.695.954-60")
-        # self.cadastrarServidor(diretor)
-        pass
+    @staticmethod
+    def inicializarBase() -> None:
+        aluno = Aluno("Misael", "999.999.999-99")
+        BaseDados.cadastrarAluno(aluno)
+        aluno = Aluno("Elias", "426.272.465.04")
+        BaseDados.cadastrarAluno(aluno)
+        professor = Professor("Juliano", "124.735.846-73")
+        BaseDados.cadastrarProfessor(professor)
+        coordenador = Coordenador("Gean", "034.346.786-74")
+        BaseDados.cadastrarCoordenador(coordenador)
+        diretor = Diretor("Mauro", "405.695.954-60")
+        BaseDados.cadastrarDiretor(diretor)
 
-    def cadastrarAluno(self, Aluno):
-        BaseDados.alunos.append(Aluno)
+    @staticmethod
+    def cadastrarAluno(aluno):
+        BaseDados.alunos.append(aluno)
         return True
-
-    def cadastrarServidor(self, Servidor):
+    
+    @staticmethod
+    def cadastrarServidor(Servidor):
         BaseDados.servidores.append(Servidor)
         return True
     
-    def cadastrarProfessor(self, Professor):
+    @staticmethod
+    def cadastrarProfessor(Professor):
         BaseDados.servidores.append(Professor)
         return True
     
-    def cadastrarCoordenador(self, Coordenador):
+    @staticmethod
+    def cadastrarCoordenador(Coordenador):
         BaseDados.servidores.append(Coordenador)
         return True
     
-    def cadastrarDiretor(self, Diretor):
+    @staticmethod
+    def cadastrarDiretor(Diretor):
         BaseDados.servidores.append(Diretor)
         return True
     
@@ -57,10 +68,11 @@ class BaseDados():
         BaseDados.salas.append(Sala)
         return True
     
-    def buscarAluno(self, aluno_procurado):
+    @staticmethod
+    def buscarAluno(aluno):
         for aluno_atual in BaseDados.alunos:
-            if aluno_atual._getNome() == aluno_procurado._getNome():
-                if aluno_atual._getCpf() == aluno_procurado._getCpf():
+            if aluno_atual._getNome() == aluno._getNome():
+                if aluno_atual._getCpf() == aluno._getCpf():
                     return aluno_atual
         return None
     
@@ -156,30 +168,72 @@ class BaseDados():
         BaseDados.servidores.clear()
         print("Base Deletada com Sucesso!")
     
-    def listarAlunos(self):
+    @staticmethod
+    def listarAlunos():
         print("Lista dos alunos:")
         for aluno in BaseDados.alunos:
-            print(aluno._getNome(), aluno._getCpf(), aluno._getMatricula(), aluno._getEndereco(), aluno._getCurso(), aluno._getDisciplina()) 
+            if isinstance(aluno, Aluno):
+                print(aluno._getNome(), aluno._getCpf(), aluno._getMatricula(), aluno._getEndereco(), aluno._getCurso(), aluno._getDisciplina()) 
+        print(input("Aperte Enter para continuar"))
     
-    def listarServidores(self):
+    @staticmethod
+    def listarServidores():
         print("Lista dos servidores:")
         for servidor in BaseDados.servidores:
-            print(servidor._getNome(), servidor._getCpf(), servidor._getEndereco(), servidor._getSala())
+            if isinstance(servidor, Servidor):
+                print(servidor._getNome(), servidor._getCpf(), servidor._getEndereco())
+        print(input("Aperte Enter para continuar"))
+        
+    @staticmethod
+    def listarProfessores():
+        print("Lista dos professores:")
+        for professor in BaseDados.servidores:
+            if isinstance(professor, Professor):
+                print(professor._getNome(), professor._getCpf(), professor._getEndereco(), professor._getDisciplinas())
+        print(input("Aperte Enter para continuar"))
+        
+    @staticmethod
+    def listarCoordenadores():
+        print("Lista dos coordenadores:")
+        for coordenador in BaseDados.servidores:
+            if isinstance(coordenador, Coordenador):
+                print(coordenador._getNome(), coordenador._getCpf(), coordenador._getEndereco())
+        print(input("Aperte Enter para continuar"))
+        
+    @staticmethod
+    def listarDiretores():
+        print("Lista dos diretores:")
+        for diretor in BaseDados.servidores:
+            if isinstance(diretor, Diretor):
+                print(diretor._getNome(), diretor._getCpf(), diretor._getEndereco())
+        print(input("Aperte Enter para continuar"))
     
-    def listarCursos(self):
+    @staticmethod
+    def listarCursos():
         print("Lista dos Cursos:")
         for curso in BaseDados.cursos:
-            print(curso.getNome(), curso.getPeriodo())
-            print(curso.getDisciplinas())
-            print(curso.getSalas())
+            if isinstance(curso, Curso):
+                print(curso._getNome(), curso._getPeriodo())
+                print(curso._getDisciplinas())
+        print(input("Aperte Enter para continuar"))
     
-    def listarDisciplinas(self):
+    @staticmethod
+    def listarDisciplinas():
         print("Lista das Disciplinas:")
         for disciplina in BaseDados.disciplinas:
-            print(disciplina.getNome(), disciplina.getSala())
+            if isinstance(disciplina, Disciplina):
+                print(disciplina._getNome(), disciplina._getSala())
+        print(input("Aperte Enter para continuar"))
     
-    def listarSalas(self):
+    @staticmethod
+    def listarSalas():
         print("Lista das Salas:")
         for sala in BaseDados.salas:
-            print(sala.getNumero(), sala.getBloco())
+            if isinstance(sala, Sala):
+                print(sala._getSalaNumero(), sala._getBlocoNumero())
+        print(input("Aperte Enter para continuar"))
     
+    
+    
+if __name__ != "__main__":
+    BaseDados.inicializarBase()             # por algum motivo, isso precisou ser feito dentro da classe

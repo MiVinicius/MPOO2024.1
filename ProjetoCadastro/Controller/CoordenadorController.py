@@ -1,4 +1,5 @@
-
+import sys
+sys.path.append('.')
 from ProjetoCadastro.Model.Coordenador import Coordenador
 from ProjetoCadastro.Model.BaseDados import BaseDados
 from ProjetoCadastro.Model.Curso import Curso
@@ -10,9 +11,11 @@ class CoordenadorController:
         coordenador = Coordenador(str(input("Digite o nome do Coordenador: \n")), str(input("Digite o cpf: \n")))
         if BaseDados.buscarServidor(coordenador) is None:
             print("Coordenador Cadastrado com sucesso!")
-            return True, BaseDados.cadastrarCoordenador(coordenador)
-        print("Coordenador ja existe!")
-        return False
+            BaseDados.cadastrarCoordenador(coordenador)
+            return True 
+        else:
+            print("Coordenador ja existe!")
+            return False
     
     @staticmethod
     def passarCurso(Coordenador):
@@ -21,12 +24,13 @@ class CoordenadorController:
     
     @staticmethod
     def buscarCoordenador():
-        return BaseDados.buscarServidor(Coordenador(str(input("Digite o nome do Coordenador: \n")), str(input("Digite o cpf: \n"))))
+        coordenador = Coordenador(str(input("Digite o nome do Coordenador: \n")), str(input("Digite o cpf: \n")))
+        return BaseDados.buscarServidor(coordenador)
     
     @staticmethod
     def atualizarCoordenador():
         coordenador = Coordenador(str(input("Digite o nome do Coordenador: \n")), str(input("Digite o cpf: \n")))
-        novos_dados = Coordenador((str(input("Digite o novo nome do Coordenador: \n"))), int(input("Digite o novo Cpf: \n")))
+        novos_dados = Coordenador((str(input("Digite o novo nome do Coordenador: \n"))), str(input("Digite o novo Cpf: \n")))
         return BaseDados.atualizarServidor(BaseDados.buscarServidor(coordenador), novos_dados)
     
     @staticmethod

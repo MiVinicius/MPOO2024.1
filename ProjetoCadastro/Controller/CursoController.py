@@ -1,4 +1,5 @@
-
+import sys
+sys.path.append('.')
 from ProjetoCadastro.Model.Curso import Curso
 from ProjetoCadastro.Model.BaseDados import BaseDados
 

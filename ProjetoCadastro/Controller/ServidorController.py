@@ -1,4 +1,5 @@
-
+import sys
+sys.path.append('.')
 from ProjetoCadastro.Model.Servidor import Servidor
 from ProjetoCadastro.Model.BaseDados import BaseDados
 
@@ -10,12 +11,14 @@ class ServidorController:
         if BaseDados.buscarServidor(servidor) is None:
             print("Servidor Cadastrado com sucesso!")
             return BaseDados.cadastrarServidor(servidor)
-        print("Servidor ja existe!")
-        return False
+        else:
+            print("Servidor ja existe!")
+            return False
     
     @staticmethod
     def buscarServidor():
-        return BaseDados.buscarServidor(Servidor((str(input("Digite o nome do Servidor: \n"))), str(input("Digite o cpf: \n"))))
+        servidor = Servidor((str(input("Digite o nome do Servidor: \n"))), str(input("Digite o cpf: \n")))
+        return BaseDados.buscarServidor(servidor)
     
     @staticmethod
     def atualizarServidor():
