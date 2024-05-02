@@ -1,8 +1,10 @@
-from Model.BaseDados import BaseDados
+import sys
+sys.path.append('.')
+from ProjetoCadastro.Model.BaseDadosModel import BaseDados
 # from Model.Aluno import Aluno
 from Controller.AlunoController import AlunoController
 BaseDados()
-BaseDados.inicializarBase()
+# BaseDados._inicializarBase()
 BaseDados.listarAlunos()
 AlunoController.cadastrarAluno()
 # aluno = Aluno("Elias", "426.272.465.04")

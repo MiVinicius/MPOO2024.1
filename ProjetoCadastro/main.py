@@ -1,5 +1,7 @@
-from Model.BaseDados import BaseDados
-from View.MenuView import MenuView
+import sys
+sys.path.append('.')
+from ProjetoCadastro.Model.BaseDadosModel import BaseDados
+from ProjetoCadastro.View.MenuView import MenuView
 # from Controller.BaseDadosController import BaseDadosController
 
 """ 

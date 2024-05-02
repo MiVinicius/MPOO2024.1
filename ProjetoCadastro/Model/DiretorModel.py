@@ -1,6 +1,6 @@
 import sys
 sys.path.append('.')
-from ProjetoCadastro.Model.Coordenador import Coordenador
+from ProjetoCadastro.Model.CoordenadorModel import Coordenador
 
 class Diretor(Coordenador):
     

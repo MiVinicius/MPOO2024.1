@@ -1,6 +1,6 @@
 import sys
 sys.path.append('.')
-from ProjetoCadastro.Model.Endereco import Endereco
+from ProjetoCadastro.Model.EnderecoModel import Endereco
 
 class EnderecoController:
     
