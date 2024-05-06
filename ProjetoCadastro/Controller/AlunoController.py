@@ -1,7 +1,6 @@
 import sys
 sys.path.append('.')
 from ProjetoCadastro.Model.AlunoModel import Aluno
-from ProjetoCadastro.Model.BaseDadosModel import BaseDados
 from ProjetoCadastro.Controller.CursoController import CursoController
 from ProjetoCadastro.Model.CursoModel import Curso
 from ProjetoCadastro.Controller.EnderecoController import EnderecoController
@@ -24,6 +23,10 @@ class AlunoController:
             return False
 
     @staticmethod
+    def passarEndereco(aluno: Aluno):
+        return AlunoController.buscarAluno(aluno)._setEndereco(EnderecoController.cadastrarEndereco())
+    
+    @staticmethod
     def passarCurso(Aluno):
         curso = CursoController.buscarCurso(Curso(str(input("Digite o nome do curso: \n")), str(input("Digite o período do curso: \n"))))
         return AlunoController.buscarAluno(Aluno)._setCurso(curso)
@@ -31,7 +34,7 @@ class AlunoController:
     @staticmethod
     def passarDisciplina(aluno: Aluno):
         disciplina = Disciplina(str(input("Digite o nome da disciplina: \n")))
-        if BaseDados.buscarDisciplina(disciplina) is None:
+        if BaseDadosController.buscarDisciplina(disciplina) is None:
             print("Disciplina não existe")
             return False
         else:

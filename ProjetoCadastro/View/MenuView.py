@@ -20,12 +20,18 @@ class MenuView:
 ##  ##   ##  ##   ## ##    ##  ##   ##  ##     ##     ## ##    ##  ##  
  ####    ##  ##   ####     ##  ##    ####      ##     ##  ##    ####   
                 """)
-            print("1 - Cadastrar Aluno")
-            print("2 - Cadastrar Servidor")
-            print("3 - Cadastrar Professor")
-            print("4 - Cadastrar Coordenador")
-            print("5 - Cadastrar Diretor")
-            print("6 - Listar Alunos")
+            print("===========================" * 6)
+            print("1 -  Cadastrar Aluno")
+            print("2 -  Cadastrar Servidor")
+            print("3 -  Cadastrar Professor")
+            print("4 -  Cadastrar Coordenador")
+            print("5 -  Cadastrar Diretor")
+            print("6 -  Listar Alunos")
+            print("7 -  Cadastrar Endereço para Aluno")
+            print("8 -  Cadastrar Endereço para Servidor")
+            print("9 -  Cadastrar Endereço para Professor")
+            print("10 - Cadastrar Endereço para Coordenador")
+            print("11 - Cadastrar Endereço para Diretor")
             
             opcao = int(input("Escolha uma opção: "))
             match opcao:
@@ -41,6 +47,16 @@ class MenuView:
                     DiretorController.cadastrarDiretor()
                 case 6:
                     BaseDadosController.listarAlunos()
+                case 7:
+                    AlunoController.passarEndereco(AlunoController.buscarAluno())
+                case 8:
+                    ServidorController.passarEndereco(ServidorController.buscarServidor())
+                case 9:
+                    ProfessorController.passarEndereco(ProfessorController.buscarProfessor())
+                case 10:
+                    CoordenadorController.passarEndereco(CoordenadorController.buscarCoordenador())
+                case 11:
+                    DiretorController.passarEndereco(DiretorController.buscarDiretor())
                 case _:
                     print("Opção invalida")
                     

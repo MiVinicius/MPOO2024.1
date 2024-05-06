@@ -4,6 +4,7 @@ from ProjetoCadastro.Model.ProfessorModel import Professor
 from ProjetoCadastro.Model.CursoModel import Curso
 from ProjetoCadastro.Model.DisciplinaModel import Disciplina
 from ProjetoCadastro.Controller.BaseDadosController import BaseDadosController
+from ProjetoCadastro.Controller.EnderecoController import EnderecoController
 
 class ProfessorController:
     @staticmethod
@@ -16,6 +17,11 @@ class ProfessorController:
         else:
             print("Professor ja existe!")
             return False
+        
+    @staticmethod
+    def passarEndereco(professor: Professor):
+        return ProfessorController.buscarProfessor(professor)._setEndereco(EnderecoController.cadastrarEndereco())
+        
     @staticmethod
     def passarCurso(professor: Professor):
         curso = Curso(str(input("Digite o nome do curso: \n")), str(input("Digite o período do curso: \n")))

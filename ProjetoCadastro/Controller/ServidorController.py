@@ -2,6 +2,7 @@ import sys
 sys.path.append('.')
 from ProjetoCadastro.Model.ServidorModel import Servidor
 from ProjetoCadastro.Controller.BaseDadosController import BaseDadosController
+from ProjetoCadastro.Controller.EnderecoController import EnderecoController
 
 class ServidorController:
     
@@ -14,6 +15,10 @@ class ServidorController:
         else:
             print("Servidor ja existe!")
             return False
+    
+    @staticmethod
+    def passarEndereco(servidor: Servidor):
+        return ServidorController.buscarServidor(servidor)._setEndereco(EnderecoController.cadastrarEndereco())
     
     @staticmethod
     def buscarServidor():

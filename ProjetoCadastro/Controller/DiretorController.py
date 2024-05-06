@@ -2,6 +2,7 @@ import sys
 sys.path.append('.')
 from ProjetoCadastro.Model.DiretorModel import Diretor
 from ProjetoCadastro.Controller.BaseDadosController import BaseDadosController
+from ProjetoCadastro.Controller.EnderecoController import EnderecoController
 
 class DiretorController:
     
@@ -15,6 +16,10 @@ class DiretorController:
         else:
             print("Diretor ja existe!")
             return False
+    
+    @staticmethod
+    def passarEndereco(Diretor):
+        return DiretorController.buscarDiretor(Diretor)._setEndereco(EnderecoController.cadastrarEndereco())
     
     @staticmethod
     def buscarDiretor():

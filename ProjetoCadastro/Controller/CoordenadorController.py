@@ -4,6 +4,7 @@ from ProjetoCadastro.Model.CoordenadorModel import Coordenador
 from ProjetoCadastro.Model.CursoModel import Curso
 from ProjetoCadastro.Controller.CursoController import CursoController
 from ProjetoCadastro.Controller.BaseDadosController import BaseDadosController
+from ProjetoCadastro.Controller.EnderecoController import EnderecoController
 
 class CoordenadorController:
     @staticmethod
@@ -16,6 +17,10 @@ class CoordenadorController:
         else:
             print("Coordenador ja existe!")
             return False
+    
+    @staticmethod
+    def passarEndereco(Coordenador):
+        return CoordenadorController.buscarCoordenador(Coordenador)._setEndereco(EnderecoController.cadastrarEndereco())
     
     @staticmethod
     def passarCurso(Coordenador):
