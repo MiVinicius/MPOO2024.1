@@ -32,7 +32,11 @@ class MenuView:
             print("9 -  Cadastrar Endereço para Professor")
             print("10 - Cadastrar Endereço para Coordenador")
             print("11 - Cadastrar Endereço para Diretor")
-            
+            print("12 - Listar Servidores")
+            print("13 - Listar Professores")
+            print("14 - Listar Coordenadores")
+            print("15 - Listar Diretores")
+            print("===========================" * 6)
             opcao = int(input("Escolha uma opção: "))
             match opcao:
                 case 1:
@@ -48,15 +52,23 @@ class MenuView:
                 case 6:
                     BaseDadosController.listarAlunos()
                 case 7:
-                    AlunoController.passarEndereco(AlunoController.buscarAluno())
+                    AlunoController.passarEndereco()
                 case 8:
-                    ServidorController.passarEndereco(ServidorController.buscarServidor())
+                    ServidorController.passarEndereco()
                 case 9:
-                    ProfessorController.passarEndereco(ProfessorController.buscarProfessor())
+                    ProfessorController.passarEndereco()
                 case 10:
-                    CoordenadorController.passarEndereco(CoordenadorController.buscarCoordenador())
+                    CoordenadorController.passarEndereco()
                 case 11:
-                    DiretorController.passarEndereco(DiretorController.buscarDiretor())
+                    DiretorController.passarEndereco()
+                case 12:
+                    BaseDadosController.listarServidores()
+                case 13:
+                    BaseDadosController.listarProfessores()
+                case 14:
+                    BaseDadosController.listarCoordenadores()
+                case 15:
+                    BaseDadosController.listarDiretores()
                 case _:
                     print("Opção invalida")
                     

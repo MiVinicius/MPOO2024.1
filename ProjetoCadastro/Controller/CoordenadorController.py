@@ -19,8 +19,8 @@ class CoordenadorController:
             return False
     
     @staticmethod
-    def passarEndereco(Coordenador):
-        return CoordenadorController.buscarCoordenador(Coordenador)._setEndereco(EnderecoController.cadastrarEndereco())
+    def passarEndereco():
+        return CoordenadorController.buscarCoordenador()._setEndereco(EnderecoController.cadastrarEndereco())
     
     @staticmethod
     def passarCurso(Coordenador):
@@ -41,4 +41,7 @@ class CoordenadorController:
     @staticmethod
     def removerCoordenador():
         return BaseDadosController.deletarCoordenador(CoordenadorController.buscarCoordenador())
+    
+    def listarCoordenadores():
+        return BaseDadosController.listarCoordenadores()
     

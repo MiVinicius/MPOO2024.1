@@ -141,7 +141,7 @@ class BaseDadosController:
         
     @staticmethod
     def listarServidores():
-        BaseDados.listarServidores()
+        BaseDados._listarServidores()
         
     @staticmethod
     def listarProfessores():

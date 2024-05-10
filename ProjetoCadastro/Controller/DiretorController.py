@@ -18,8 +18,8 @@ class DiretorController:
             return False
     
     @staticmethod
-    def passarEndereco(Diretor):
-        return DiretorController.buscarDiretor(Diretor)._setEndereco(EnderecoController.cadastrarEndereco())
+    def passarEndereco():
+        return DiretorController.buscarDiretor()._setEndereco(EnderecoController.cadastrarEndereco())
     
     @staticmethod
     def buscarDiretor():
@@ -35,3 +35,7 @@ class DiretorController:
     @staticmethod
     def deletarDiretor():
         return BaseDadosController.deletarDiretor(DiretorController.buscarDiretor())
+    
+    @staticmethod
+    def listarDiretor():
+        return BaseDadosController.listarDiretores()

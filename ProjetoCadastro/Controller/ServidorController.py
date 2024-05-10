@@ -17,8 +17,8 @@ class ServidorController:
             return False
     
     @staticmethod
-    def passarEndereco(servidor: Servidor):
-        return ServidorController.buscarServidor(servidor)._setEndereco(EnderecoController.cadastrarEndereco())
+    def passarEndereco():
+        return ServidorController.buscarServidor()._setEndereco(EnderecoController.cadastrarEndereco())
     
     @staticmethod
     def buscarServidor():
@@ -34,3 +34,7 @@ class ServidorController:
     @staticmethod
     def removerServidor():
         return BaseDadosController.deletarServidor(ServidorController.buscarServidor())
+    
+    @staticmethod
+    def listarServidores():
+        return BaseDadosController.listarServidores()

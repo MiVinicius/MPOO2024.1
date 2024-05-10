@@ -19,8 +19,8 @@ class ProfessorController:
             return False
         
     @staticmethod
-    def passarEndereco(professor: Professor):
-        return ProfessorController.buscarProfessor(professor)._setEndereco(EnderecoController.cadastrarEndereco())
+    def passarEndereco():
+        return ProfessorController.buscarProfessor()._setEndereco(EnderecoController.cadastrarEndereco())
         
     @staticmethod
     def passarCurso(professor: Professor):
@@ -55,3 +55,7 @@ class ProfessorController:
     @staticmethod
     def deletarProfessor():
         return BaseDadosController.deletarProfessor(ProfessorController.buscarProfessor())
+    
+    @staticmethod
+    def listarProfessores():
+        BaseDadosController.listarProfessores()

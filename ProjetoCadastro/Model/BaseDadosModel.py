@@ -24,6 +24,8 @@ class BaseDados():
         BaseDados.cadastrarAluno(aluno)
         aluno = Aluno("Elias", "426.272.465.04")
         BaseDados.cadastrarAluno(aluno)
+        servidor = Servidor("Jurisclebson", "400.289.228-00")
+        BaseDados.cadastrarServidor(servidor)
         professor = Professor("Juliano", "124.735.846-73")
         BaseDados.cadastrarProfessor(professor)
         coordenador = Coordenador("Gean", "034.346.786-74")
@@ -72,47 +74,47 @@ class BaseDados():
         return True
     
     @staticmethod
-    def buscarAluno(Aluno):
+    def buscarAluno(aluno):
         for aluno_atual in BaseDados.alunos:
-            if aluno_atual._getNome() == Aluno._getNome():
-                if aluno_atual._getCpf() == Aluno._getCpf():
+            if aluno_atual._getNome() == aluno._getNome():
+                if aluno_atual._getCpf() == aluno._getCpf():
                     return aluno_atual
         return None
     
     @staticmethod
-    def buscarServidor(Servidor):
+    def buscarServidor(servidor):
         for servidor_atual in BaseDados.servidores:
-            if isinstance(Servidor, Servidor):
-                if  servidor_atual._getNome()==Servidor._getNome():
-                    if servidor_atual._getCpf() == Servidor._getCpf():
+            if isinstance(servidor_atual, Servidor):
+                if  servidor_atual._getNome()==servidor._getNome():
+                    if servidor_atual._getCpf() == servidor._getCpf():
                         return servidor_atual
         return None
     
     @staticmethod
-    def buscarProfessor(Professor):
-        for professor in BaseDados.servidores:
-            if isinstance(Professor, Professor):
-                if professor._getNome() == Professor._getNome():
-                    if professor._getCpf() == Professor._getCpf():
-                        return professor
+    def buscarProfessor(professor):
+        for professor_atual in BaseDados.servidores:
+            if isinstance(professor_atual, Professor):
+                if professor_atual._getNome() == professor._getNome():
+                    if professor_atual._getCpf() == professor._getCpf():
+                        return professor_atual
         return None
     
     @staticmethod
-    def buscarCoordenador(Coordenador):
-        for coordenador in BaseDados.servidores:
-            if isinstance(Coordenador, Coordenador):
-                if coordenador._getNome() == Coordenador._getNome():
-                    if coordenador._getCpf() == Coordenador._getCpf():
-                        return coordenador
+    def buscarCoordenador(coordenador):
+        for coordenador_atual in BaseDados.servidores:
+            if isinstance(coordenador_atual, Coordenador):
+                if coordenador_atual._getNome() == coordenador._getNome():
+                    if coordenador_atual._getCpf() == coordenador._getCpf():
+                        return coordenador_atual
         return None
     
     @staticmethod
-    def buscarDiretor(Diretor):
-        for diretor in BaseDados.servidores:
-            if isinstance(Diretor, Diretor):
-                if diretor._getNome() == Diretor._getNome():
-                    if diretor._getCpf() == Diretor._getCpf():
-                        return diretor
+    def buscarDiretor(diretor):
+        for diretor_atual in BaseDados.servidores:
+            if isinstance(diretor_atual, Diretor):
+                if diretor_atual._getNome() == diretor._getNome():
+                    if diretor_atual._getCpf() == diretor._getCpf():
+                        return diretor_atual
         return None
 
     @staticmethod
@@ -274,10 +276,10 @@ class BaseDados():
         print(input("Aperte Enter para continuar"))
     
     @staticmethod
-    def listarServidores():
+    def _listarServidores():
         print("Lista dos servidores:")
         for servidor in BaseDados.servidores:
-            if isinstance(servidor, Servidor):
+            if isinstance(servidor, Servidor) and not isinstance(servidor, Professor) and not isinstance(servidor, Coordenador)and not isinstance(servidor, Diretor):
                 print(servidor._getNome(), servidor._getCpf(), servidor._getEndereco())
         print(input("Aperte Enter para continuar"))
         
@@ -285,7 +287,7 @@ class BaseDados():
     def listarProfessores():
         print("Lista dos professores:")
         for professor in BaseDados.servidores:
-            if isinstance(professor, Professor):
+            if isinstance(professor, Professor) and not isinstance(professor, Coordenador) and not isinstance(professor, Diretor):
                 print(professor._getNome(), professor._getCpf(), professor._getEndereco(), professor._getDisciplinas())
         print(input("Aperte Enter para continuar"))
         
@@ -293,7 +295,7 @@ class BaseDados():
     def listarCoordenadores():
         print("Lista dos coordenadores:")
         for coordenador in BaseDados.servidores:
-            if isinstance(coordenador, Coordenador):
+            if isinstance(coordenador, Coordenador) and not isinstance(coordenador, Diretor):
                 print(coordenador._getNome(), coordenador._getCpf(), coordenador._getEndereco())
         print(input("Aperte Enter para continuar"))
         

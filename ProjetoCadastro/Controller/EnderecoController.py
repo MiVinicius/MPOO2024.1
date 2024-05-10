@@ -9,7 +9,8 @@ class EnderecoController:
         endereco = Endereco(str(input("Digite o nome da rua: \n")),
                             str(input("Digite o nome do bairro: \n")),
                             int(input("Digite o número: \n")),
-                            str(input("Digite o nome da cidade: \n")))
+                            str(input("Digite o nome da cidade: \n")),
+                            str(input("Digite o nome do estado: \n")))
         return endereco
     
     @staticmethod
