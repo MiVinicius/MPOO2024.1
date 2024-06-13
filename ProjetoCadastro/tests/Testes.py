@@ -1,14 +1,14 @@
 import sys
 sys.path.append('.')
-from ProjetoCadastro.Model.BaseDadosModel import BaseDados
+from ProjetoCadastro.Model.BaseDadosModel import BaseDadosModel
 # from Model.Aluno import Aluno
 from Controller.AlunoController import AlunoController
-BaseDados()
+BaseDadosModel()
 # BaseDados._inicializarBase()
-BaseDados.listarAlunos()
+BaseDadosModel.listarAlunos()
 AlunoController.cadastrarAluno()
 # aluno = Aluno("Elias", "426.272.465.04")
 # print(baseDados.cadastrarAluno(aluno))
 # print(baseDados.buscarAluno(aluno))
-BaseDados.listarAlunos()
-print(BaseDados.alunos[2]._getNome())
+BaseDadosModel.listarAlunos()
+print(BaseDadosModel.alunos[2]._getNome())

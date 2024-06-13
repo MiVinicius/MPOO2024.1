@@ -6,11 +6,18 @@ from ProjetoCadastro.Controller.ProfessorController import ProfessorController
 from ProjetoCadastro.Controller.CoordenadorController import CoordenadorController
 from ProjetoCadastro.Controller.DiretorController import DiretorController
 from ProjetoCadastro.Controller.BaseDadosController import BaseDadosController
+import os
+from ProjetoCadastro.View.telaDeCarregamento import telaDeCarregamento
+
+def clear():
+    return os.system('cls')
 
 class MenuView:
-    
+    telaDeCarregamento()
     def Menu():
+        
         while True:
+            clear()
             print("""
  ####      ##     ####       ##      ####    ######   #####     ####   
 ##  ##    ####    ## ##     ####    ##  ##     ##     ##  ##   ##  ##  

@@ -1,6 +1,6 @@
 import sys
 sys.path.append('.')
-from ProjetoCadastro.Model.BaseDadosModel import BaseDados
+from ProjetoCadastro.Model.BaseDadosModel import BaseDadosModel
 from ProjetoCadastro.View.MenuView import MenuView
 # from Controller.BaseDadosController import BaseDadosController
 
@@ -14,7 +14,7 @@ def Main():
     
     # BaseDados().inicializarBase() # não funciona 
     
-    BaseDados()  # funciona
+    BaseDadosModel()  # funciona
     
     
     MenuView()

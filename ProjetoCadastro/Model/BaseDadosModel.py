@@ -10,7 +10,7 @@ from ProjetoCadastro.Model.DisciplinaModel import Disciplina
 from ProjetoCadastro.Model.SalaModel import Sala
 
 # Create
-class BaseDados():
+class BaseDadosModel():
     
     alunos :list = []    
     servidores :list = []
@@ -21,69 +21,69 @@ class BaseDados():
     @staticmethod
     def _inicializarBase() -> None:
         aluno = Aluno("Misael", "999.999.999-99")
-        BaseDados.cadastrarAluno(aluno)
+        BaseDadosModel.cadastrarAluno(aluno)
         aluno = Aluno("Elias", "426.272.465.04")
-        BaseDados.cadastrarAluno(aluno)
+        BaseDadosModel.cadastrarAluno(aluno)
         servidor = Servidor("Jurisclebson", "400.289.228-00")
-        BaseDados.cadastrarServidor(servidor)
+        BaseDadosModel.cadastrarServidor(servidor)
         professor = Professor("Juliano", "124.735.846-73")
-        BaseDados.cadastrarProfessor(professor)
+        BaseDadosModel.cadastrarProfessor(professor)
         coordenador = Coordenador("Gean", "034.346.786-74")
-        BaseDados.cadastrarCoordenador(coordenador)
+        BaseDadosModel.cadastrarCoordenador(coordenador)
         diretor = Diretor("Mauro", "405.695.954-60")
-        BaseDados.cadastrarDiretor(diretor)
+        BaseDadosModel.cadastrarDiretor(diretor)
 
     @staticmethod
     def cadastrarAluno(Aluno):
-        BaseDados.alunos.append(Aluno)
+        BaseDadosModel.alunos.append(Aluno)
         return True
     
     @staticmethod
     def cadastrarServidor(Servidor):
-        BaseDados.servidores.append(Servidor)
+        BaseDadosModel.servidores.append(Servidor)
         return True
     
     @staticmethod
     def cadastrarProfessor(Professor):
-        BaseDados.servidores.append(Professor)
+        BaseDadosModel.servidores.append(Professor)
         return True
     
     @staticmethod
     def cadastrarCoordenador(Coordenador):
-        BaseDados.servidores.append(Coordenador)
+        BaseDadosModel.servidores.append(Coordenador)
         return True
     
     @staticmethod
     def cadastrarDiretor(Diretor):
-        BaseDados.servidores.append(Diretor)
+        BaseDadosModel.servidores.append(Diretor)
         return True
     
     @staticmethod
     def cadastrarCurso(Curso):
-        BaseDados.cursos.append(Curso)
+        BaseDadosModel.cursos.append(Curso)
         return True
     
     @staticmethod
     def cadastrarDisciplina(Disciplina):
-        BaseDados.disciplinas.append(Disciplina)
+        BaseDadosModel.disciplinas.append(Disciplina)
         return True
     
     @staticmethod
     def cadastrarSala(Sala):
-        BaseDados.salas.append(Sala)
+        BaseDadosModel.salas.append(Sala)
         return True
     
     @staticmethod
     def buscarAluno(aluno):
-        for aluno_atual in BaseDados.alunos:
+        for aluno_atual in BaseDadosModel.alunos:
             if aluno_atual._getNome() == aluno._getNome():
                 if aluno_atual._getCpf() == aluno._getCpf():
                     return aluno_atual
         return None
     
     @staticmethod
-    def buscarServidor(servidor):
-        for servidor_atual in BaseDados.servidores:
+    def buscarServidor(servidor: Servidor):
+        for servidor_atual in BaseDadosModel.servidores:
             if isinstance(servidor_atual, Servidor):
                 if  servidor_atual._getNome()==servidor._getNome():
                     if servidor_atual._getCpf() == servidor._getCpf():
@@ -92,7 +92,7 @@ class BaseDados():
     
     @staticmethod
     def buscarProfessor(professor):
-        for professor_atual in BaseDados.servidores:
+        for professor_atual in BaseDadosModel.servidores:
             if isinstance(professor_atual, Professor):
                 if professor_atual._getNome() == professor._getNome():
                     if professor_atual._getCpf() == professor._getCpf():
@@ -101,7 +101,7 @@ class BaseDados():
     
     @staticmethod
     def buscarCoordenador(coordenador):
-        for coordenador_atual in BaseDados.servidores:
+        for coordenador_atual in BaseDadosModel.servidores:
             if isinstance(coordenador_atual, Coordenador):
                 if coordenador_atual._getNome() == coordenador._getNome():
                     if coordenador_atual._getCpf() == coordenador._getCpf():
@@ -110,7 +110,7 @@ class BaseDados():
     
     @staticmethod
     def buscarDiretor(diretor):
-        for diretor_atual in BaseDados.servidores:
+        for diretor_atual in BaseDadosModel.servidores:
             if isinstance(diretor_atual, Diretor):
                 if diretor_atual._getNome() == diretor._getNome():
                     if diretor_atual._getCpf() == diretor._getCpf():
@@ -119,7 +119,7 @@ class BaseDados():
 
     @staticmethod
     def buscarCurso(id_curso):
-        for curso in BaseDados.cursos:
+        for curso in BaseDadosModel.cursos:
             if curso._getNome() == id_curso._getNome():
                 if curso._getPeriodo() == id_curso._getPeriodo():
                     return curso
@@ -127,14 +127,14 @@ class BaseDados():
     
     @staticmethod
     def buscarDisciplina(id_disciplina):
-        for disciplina in BaseDados.disciplinas:
+        for disciplina in BaseDadosModel.disciplinas:
             if disciplina._getNome() == id_disciplina._getNome():
                 return disciplina
         return None
     
     @staticmethod
     def buscarSala(id_sala):
-        for sala in BaseDados.salas:
+        for sala in BaseDadosModel.salas:
             if sala._getNome() == id_sala._getNome():
                 if sala._getBloco() == id_sala._getBloco():
                     return sala
@@ -142,135 +142,135 @@ class BaseDados():
     
     @staticmethod
     def atualizarAluno(id_aluno, novos_dados):
-        for aluno in BaseDados.alunos:
+        for aluno in BaseDadosModel.alunos:
             if aluno._getNome() == id_aluno._getNome():
                 if aluno._getCpf() == id_aluno._getCpf():
-                    BaseDados.alunos.index(aluno)._setNome(novos_dados._getNome())
-                    BaseDados.alunos.index(aluno)._setCpf(novos_dados._getCpf())
-                    BaseDados.alunos.index(aluno)._setEndereco(novos_dados._getEndereco())
+                    BaseDadosModel.alunos.index(aluno)._setNome(novos_dados._getNome())
+                    BaseDadosModel.alunos.index(aluno)._setCpf(novos_dados._getCpf())
+                    BaseDadosModel.alunos.index(aluno)._setEndereco(novos_dados._getEndereco())
                     return True
         return False
     
     @staticmethod
     def atualizarServidor(id_pessoa, novos_dados):
-        for servidor in BaseDados.servidores:
+        for servidor in BaseDadosModel.servidores:
             if servidor._getNome() == id_pessoa._getNome():
                 if servidor._getCpf() == id_pessoa._getCpf():
-                    BaseDados.servidores.index(servidor)._setNome(novos_dados._getNome())
-                    BaseDados.servidores.index(servidor)._setCpf(novos_dados._getCpf())
-                    BaseDados.servidores.index(servidor)._setEndereco(novos_dados._getEndereco())
+                    BaseDadosModel.servidores.index(servidor)._setNome(novos_dados._getNome())
+                    BaseDadosModel.servidores.index(servidor)._setCpf(novos_dados._getCpf())
+                    BaseDadosModel.servidores.index(servidor)._setEndereco(novos_dados._getEndereco())
                     return True
         return False
     
     @staticmethod
     def atualizarProfessor(professor, novos_dados):
-        for servidor in BaseDados.servidores:
+        for servidor in BaseDadosModel.servidores:
             if servidor._getNome() == professor._getNome():
                 if servidor._getCpf() == professor._getCpf():
-                    BaseDados.servidores.index(servidor)._setNome(novos_dados._getNome())
-                    BaseDados.servidores.index(servidor)._setCpf(novos_dados._getCpf())
-                    BaseDados.servidores.index(servidor)._setEndereco(novos_dados._getEndereco())
+                    BaseDadosModel.servidores.index(servidor)._setNome(novos_dados._getNome())
+                    BaseDadosModel.servidores.index(servidor)._setCpf(novos_dados._getCpf())
+                    BaseDadosModel.servidores.index(servidor)._setEndereco(novos_dados._getEndereco())
                     return True
         return False
     
     @staticmethod
     def atualizarCoordenador(Coordenador, novos_dados):
-        for servidor in BaseDados.servidores:
+        for servidor in BaseDadosModel.servidores:
             if servidor._getNome() == Coordenador._getNome():
                 if servidor._getCpf() == Coordenador._getCpf():
-                    BaseDados.servidores.index(servidor)._setNome(novos_dados._getNome())
-                    BaseDados.servidores.index(servidor)._setCpf(novos_dados._getCpf())
-                    BaseDados.servidores.index(servidor)._setEndereco(novos_dados._getEndereco())
+                    BaseDadosModel.servidores.index(servidor)._setNome(novos_dados._getNome())
+                    BaseDadosModel.servidores.index(servidor)._setCpf(novos_dados._getCpf())
+                    BaseDadosModel.servidores.index(servidor)._setEndereco(novos_dados._getEndereco())
                     return True
         return False
     
     @staticmethod
     def atualizarDiretor(Diretor, novos_dados):
-        for servidor in BaseDados.servidores:
+        for servidor in BaseDadosModel.servidores:
             if servidor._getNome() == Diretor._getNome():
                 if servidor._getCpf() == Diretor._getCpf():
-                    BaseDados.servidores.index(servidor)._setNome(novos_dados._getNome())
-                    BaseDados.servidores.index(servidor)._setCpf(novos_dados._getCpf())
-                    BaseDados.servidores.index(servidor)._setEndereco(novos_dados._getEndereco())
+                    BaseDadosModel.servidores.index(servidor)._setNome(novos_dados._getNome())
+                    BaseDadosModel.servidores.index(servidor)._setCpf(novos_dados._getCpf())
+                    BaseDadosModel.servidores.index(servidor)._setEndereco(novos_dados._getEndereco())
                     return True
         return False
     
     @staticmethod
     def atualizarCurso(id_curso, novos_dados):
-        for curso in BaseDados.cursos:
+        for curso in BaseDadosModel.cursos:
             if curso._getNome() == id_curso._getNome():
-                BaseDados.cursos.index(curso)._setNome(novos_dados._getNome()) 
-                BaseDados.cursos.index(curso)._setPeriodo(novos_dados._getPeriodo())
-                BaseDados.cursos.index(curso)._setCoordenador(novos_dados._getCoordenador())
+                BaseDadosModel.cursos.index(curso)._setNome(novos_dados._getNome()) 
+                BaseDadosModel.cursos.index(curso)._setPeriodo(novos_dados._getPeriodo())
+                BaseDadosModel.cursos.index(curso)._setCoordenador(novos_dados._getCoordenador())
                 return True
         return False
     
     @staticmethod
     def atualizarDisciplina(id_disciplina, novos_dados): 
-        for disciplina in BaseDados.disciplinas:
+        for disciplina in BaseDadosModel.disciplinas:
             if disciplina._getNome() == id_disciplina._getNome():
-                BaseDados.disciplinas.index(disciplina)._setNome(novos_dados._getNome())
+                BaseDadosModel.disciplinas.index(disciplina)._setNome(novos_dados._getNome())
                 return True
         return False
     
     @staticmethod
     def atualizarSala(id_sala, novos_dados):
-        for sala in BaseDados.salas:
+        for sala in BaseDadosModel.salas:
             if sala._getSalaNumero() == id_sala._getSalaNumero() and sala._getBlocoNumero() == id_sala._getBlocoNumero():
-                BaseDados.salas.index(sala)._setNome(novos_dados._getNome()), BaseDados.salas.index(sala)._setBloco(novos_dados._getBloco())
+                BaseDadosModel.salas.index(sala)._setNome(novos_dados._getNome()), BaseDadosModel.salas.index(sala)._setBloco(novos_dados._getBloco())
                 return True
         return False
     
     @staticmethod
     def deletarAluno(Aluno):
-        BaseDados.alunos.remove(Aluno)
+        BaseDadosModel.alunos.remove(Aluno)
         return True
     
     @staticmethod
     def deletarServidor(Servidor):
-        BaseDados.servidores.remove(Servidor)
+        BaseDadosModel.servidores.remove(Servidor)
         return True
     
     @staticmethod
     def deletarProfessor(Professor):
-        BaseDados.servidores.remove(Professor)
+        BaseDadosModel.servidores.remove(Professor)
         return True
     
     @staticmethod
     def deletarCoordenador(Coordenador):
-        BaseDados.servidores.remove(Coordenador)
+        BaseDadosModel.servidores.remove(Coordenador)
         return True
     
     @staticmethod
     def deletarDiretor(Diretor):
-        BaseDados.servidores.remove(Diretor)
+        BaseDadosModel.servidores.remove(Diretor)
         return True
     
     @staticmethod
     def deletarCurso(Curso):
         Curso._setDisciplinas(None) 
-        BaseDados.cursos.remove(Curso)  
+        BaseDadosModel.cursos.remove(Curso)  
         return True
     
     @staticmethod
     def deletarDisciplina(Disciplina):
-        BaseDados.disciplinas.remove(Disciplina)
+        BaseDadosModel.disciplinas.remove(Disciplina)
         return True
     
     @staticmethod
     def deletarSala(Sala):
-        return BaseDados.salas.remove(Sala)
+        return BaseDadosModel.salas.remove(Sala)
     
     @staticmethod
     def deletarBase():      
-        BaseDados.alunos.clear()
-        BaseDados.servidores.clear()
+        BaseDadosModel.alunos.clear()
+        BaseDadosModel.servidores.clear()
         print("Base Deletada com Sucesso!")
     
     @staticmethod
     def listarAlunos():
         print("Lista dos alunos:")
-        for aluno in BaseDados.alunos:
+        for aluno in BaseDadosModel.alunos:
             if isinstance(aluno, Aluno):
                 print(aluno._getNome(), aluno._getCpf(), aluno._getMatricula(), aluno._getEndereco(), aluno._getCurso(), aluno._getDisciplina()) 
         print(input("Aperte Enter para continuar"))
@@ -278,7 +278,7 @@ class BaseDados():
     @staticmethod
     def _listarServidores():
         print("Lista dos servidores:")
-        for servidor in BaseDados.servidores:
+        for servidor in BaseDadosModel.servidores:
             if isinstance(servidor, Servidor) and not isinstance(servidor, Professor) and not isinstance(servidor, Coordenador)and not isinstance(servidor, Diretor):
                 print(servidor._getNome(), servidor._getCpf(), servidor._getEndereco())
         print(input("Aperte Enter para continuar"))
@@ -286,7 +286,7 @@ class BaseDados():
     @staticmethod
     def listarProfessores():
         print("Lista dos professores:")
-        for professor in BaseDados.servidores:
+        for professor in BaseDadosModel.servidores:
             if isinstance(professor, Professor) and not isinstance(professor, Coordenador) and not isinstance(professor, Diretor):
                 print(professor._getNome(), professor._getCpf(), professor._getEndereco(), professor._getDisciplinas())
         print(input("Aperte Enter para continuar"))
@@ -294,7 +294,7 @@ class BaseDados():
     @staticmethod
     def listarCoordenadores():
         print("Lista dos coordenadores:")
-        for coordenador in BaseDados.servidores:
+        for coordenador in BaseDadosModel.servidores:
             if isinstance(coordenador, Coordenador) and not isinstance(coordenador, Diretor):
                 print(coordenador._getNome(), coordenador._getCpf(), coordenador._getEndereco())
         print(input("Aperte Enter para continuar"))
@@ -302,7 +302,7 @@ class BaseDados():
     @staticmethod
     def listarDiretores():
         print("Lista dos diretores:")
-        for diretor in BaseDados.servidores:
+        for diretor in BaseDadosModel.servidores:
             if isinstance(diretor, Diretor):
                 print(diretor._getNome(), diretor._getCpf(), diretor._getEndereco())
         print(input("Aperte Enter para continuar"))
@@ -310,7 +310,7 @@ class BaseDados():
     @staticmethod
     def listarCursos():
         print("Lista dos Cursos:")
-        for curso in BaseDados.cursos:
+        for curso in BaseDadosModel.cursos:
             if isinstance(curso, Curso):
                 print(curso._getNome(), curso._getPeriodo())
                 print(curso._getDisciplinas())
@@ -319,7 +319,7 @@ class BaseDados():
     @staticmethod
     def listarDisciplinas():
         print("Lista das Disciplinas:")
-        for disciplina in BaseDados.disciplinas:
+        for disciplina in BaseDadosModel.disciplinas:
             if isinstance(disciplina, Disciplina):
                 print(disciplina._getNome(), disciplina._getSala())
         print(input("Aperte Enter para continuar"))
@@ -327,7 +327,7 @@ class BaseDados():
     @staticmethod
     def listarSalas():
         print("Lista das Salas:")
-        for sala in BaseDados.salas:
+        for sala in BaseDadosModel.salas:
             if isinstance(sala, Sala):
                 print(sala._getSalaNumero(), sala._getBlocoNumero())
         print(input("Aperte Enter para continuar"))
@@ -335,4 +335,4 @@ class BaseDados():
     
     
 if __name__ != "__main__":
-    BaseDados._inicializarBase()             # por algum motivo, isso precisou ser feito dentro da classe
+    BaseDadosModel._inicializarBase()             # por algum motivo, isso precisou ser feito dentro da classe
